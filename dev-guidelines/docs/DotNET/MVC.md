@@ -19,10 +19,10 @@ It should follow the following structure:
 - /StartupExtensions - This folder contains extension methods for configuring services and middleware in the Startup.cs file, such as adding authentication, configuring CORS, setting up logging, etc.
 - /Utils - This folder contains utility classes and helper methods that can be used across the application. These may include common functions, extensions, or any reusable code that doesn't fit into the other layers.
 - /Filters - This folder contains Action Filters, Authorization Filters, Exception Filters, and Result Filters that can be applied to controllers or actions to handle cross-cutting concerns such as logging, authentication, error handling, etc.
-- /Validators - This folder contains validations ffor models using FluentValidation or custom validation attributes.
+- /Validators - This folder contains validations for models using FluentValidation or custom validation attributes.
 - /Mappers - This folder contains classes that handle mapping between different object models, such as AutoMapper profiles or custom mapping logic.
-- /Scripts/SeedData - This folder contaiins scripts for seeding initial data into the database.
-- /Scripts/json - This folder contains JSON files that contain scripts with placeholders that can be replaced at runtime with acutual values.
+- /Scripts/SeedData - This folder contains scripts for seeding initial data into the database.
+- /Scripts/json - This folder contains JSON files that contain scripts with placeholders that can be replaced at runtime with actual values.
 - /Configurations - This folder contains custom configuration json files for the application.
 - ../docs - This folder contains documentation files related to the application, such as API documentation, architecture diagrams, or any other relevant documentation that helps developers understand and work with the application effectively.
 

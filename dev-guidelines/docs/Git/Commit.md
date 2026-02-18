@@ -13,7 +13,7 @@ description: Create a git commit
 
 ## Your task
 
-Based on the above changes, create a single git commit an then push to the current remote branch.
+Based on the above changes, create a single git commit and then push to the current remote branch.
 
 ## Commit Message Guidelines
 

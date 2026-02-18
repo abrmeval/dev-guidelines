@@ -1,4 +1,4 @@
-Documentaion projects can be built using the following tools:
+Documentation projects can be built using the following tools:
 Docusaurus
 docmd.io
 

@@ -1,4 +1,4 @@
-C# language naming convetions should be followed for all code in this repository. This includes:
+C# language naming conventions should be followed for all code in this repository. This includes:
 - Classes: PascalCase (e.g., `MyClass`)
 - Methods: PascalCase (e.g., `MyMethod()`)
 - Variables: camelCase (e.g., `myVariable`)
@@ -8,7 +8,7 @@ C# language naming convetions should be followed for all code in this repository
 - Namespaces: PascalCase (e.g., `Project.Folder.Subfolder`)
 - Properties: PascalCase (e.g., `MyProperty`)
 - Private fields: camelCase with an underscore prefix (e.g., `_myPrivateField`)
-- Interal fields: camelCase with an underscore prefix (e.g., `_myInternalField`)
+- Internal fields: camelCase with an underscore prefix (e.g., `_myInternalField`)
 - Public fields: PascalCase (e.g., `MyPublicField`)
 - Static fields: PascalCase (e.g., `MyStaticField`)
 - Private or Internal Static fields: camelCase with the "s_" prefix (e.g., `s_myStaticField`)
