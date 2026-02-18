@@ -90,7 +90,7 @@ const config: Config = {
             },
             {
               label: '.NET Architecture',
-              to: '/.NET/VERTICALSLICE',
+              to: '/DotNET/VERTICALSLICE',
             },
             {
               label: 'Backend',

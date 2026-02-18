@@ -20,11 +20,11 @@ const sidebars: SidebarsConfig = {
       label: '.NET Architecture',
       collapsed: false,
       items: [
-        '.NET/VERTICALSLICE',
-        '.NET/MICROSERVICES',
-        '.NET/MODULARMONOLITHIC',
-        '.NET/MONOLITHIC',
-        '.NET/MVC',
+        'DotNET/VERTICALSLICE',
+        'DotNET/MICROSERVICES',
+        'DotNET/MODULARMONOLITHIC',
+        'DotNET/MONOLITHIC',
+        'DotNET/MVC',
       ],
     },
     {
