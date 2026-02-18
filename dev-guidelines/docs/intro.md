@@ -1,47 +1,74 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
-# Tutorial Intro
+# Dev Guidelines
 
-Let's discover **Docusaurus in less than 5 minutes**.
+A personal developer guidelines repository containing conventions, patterns, naming standards, and architectural decisions. This repository serves as the **single source of truth** for how code should be written, structured, and organized — for both **human developers** and **AI coding agents**.
 
-## Getting Started
+> Any AI agent (GitHub Copilot, Cursor, etc.) working in projects associated with these guidelines **must** read and follow the conventions defined here before generating or modifying code.
 
-Get started by **creating a new site**.
+---
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Purpose
 
-### What you'll need
+This repository exists to:
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- Enforce **consistency** across all projects regardless of language, framework, or platform
+- Give AI agents explicit context about personal conventions so generated code always matches expectations
+- Reduce code review friction by having clear, documented standards
+- Serve as onboarding material for any developer (or AI) joining a project
 
-## Generate a new site
+---
 
-Generate a new Docusaurus site using the **classic template**.
+## How to Use This Repository
 
-The classic template will automatically be added to your project after you run the command:
+### As a Developer
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+1. Before starting a new project, read the relevant section for your stack (e.g., `Frontend/React/` for a React app)
+2. Follow naming conventions from the matching `NAMING_CONVENTIONS.md`
+3. Follow the project structure from the matching `PROJECT_STRUCTURE.md`
+4. Follow Git conventions from `Git/Commit.md` and `Git/PR.md`
+5. Follow documentation requirements from `Documentation/REQUIRED_DOCS.md`
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### As an AI Agent
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+When working on any project associated with this guidelines repository:
 
-## Start your site
+1. **Read the applicable guideline files** for the technology being used before generating any code
+2. **Naming:** Follow the `NAMING_CONVENTIONS.md` for the relevant language/framework
+3. **Structure:** Follow the `PROJECT_STRUCTURE.md` for the relevant framework
+4. **Architecture:** Apply the pattern defined in `.NET/` for the project type
+5. **Git:** Use commit message format from `Git/Commit.md`
+6. **Documentation:** Ensure all required docs from `Documentation/REQUIRED_DOCS.md` exist
+7. **Ask before deviating** — if a situation is not covered, ask the developer rather than assuming
 
-Run the development server:
+---
 
-```bash
-cd my-website
-npm run start
-```
+## Tech Stack Coverage
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+| Domain | Technologies Covered |
+|---|---|
+| Backend | C# / .NET, Node.js |
+| Frontend | React (Vite + Bun), Vue 3 (Vite + Bun), Vanilla JavaScript |
+| Architecture | Monolithic (N-Tier), Modular Monolith, Microservices, Vertical Slice, MVC |
+| Database | Relational (naming conventions) |
+| Cloud | Cloud resource naming |
+| Testing | Unit, Integration, End-to-End |
+| Git | Commits, Pull Requests |
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+---
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Navigation
+
+Use the sidebar to explore different sections:
+
+- **.NET** - Architecture patterns for .NET applications
+- **Backend** - Backend development conventions and patterns
+- **Cloud** - Cloud infrastructure naming conventions
+- **Database** - Database naming standards
+- **Documentation** - Documentation standards and requirements
+- **Frontend** - Frontend framework conventions (React, Vue, Vanilla JS)
+- **Git** - Git workflow and commit standards
+- **Testing** - Testing tools and best practices
