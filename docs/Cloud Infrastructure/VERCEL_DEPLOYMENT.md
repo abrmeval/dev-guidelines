@@ -58,8 +58,8 @@ This is the simplest and recommended starting point for most documentation websi
 | Setting | Recommended Value | What It Does |
 |---|---|---|
 | Framework Preset | `Docusaurus` or `Other` | Helps Vercel apply sensible defaults for the site |
-| Install Command | `npm ci` | Installs dependencies exactly from `package-lock.json` for reproducible builds |
-| Build Command | `npm run build` | Generates the static Docusaurus site in the build output folder |
+| Install Command | `bun install --frozen-lockfile` | Installs dependencies from the Bun lockfile without changing locked versions |
+| Build Command | `bun run build` | Generates the static Docusaurus site in the build output folder |
 | Output Directory | `build` | Tells Vercel which generated files should be published |
 | Node.js Version | Match the repo standard | Keeps local, CI, and Vercel builds consistent |
 
@@ -74,7 +74,7 @@ This is the simplest and recommended starting point for most documentation websi
 - Protect the production branch before enabling automatic production deploys
 - Use preview deployments for content review before merging
 - Store environment variables in Vercel project settings, not in the repository
-- Keep the build command deterministic with `npm ci` and a committed lockfile
+- Keep the build command deterministic with `bun install --frozen-lockfile` and a committed `bun.lockb`
 
 ## Option 2: Deploy with GitHub Actions
 
@@ -99,43 +99,42 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
-          cache: npm
+          bun-version: latest
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Validate TypeScript configuration
-        run: npm run typecheck
+        run: bun run typecheck
 
       - name: Build the Docusaurus site
-        run: npm run build
+        run: bun run build
 
       - name: Pull Vercel project settings
-        run: npx vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        run: bunx vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Build the Vercel deployment artifact
-        run: npx vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        run: bunx vercel build --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy preview
         if: github.event_name == 'pull_request'
-        run: npx vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        run: bunx vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy production
         if: github.event_name == 'push'
-        run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: bunx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -145,13 +144,13 @@ jobs:
 
 | Command | Purpose |
 |---|---|
-| `npm ci` | Installs dependencies from the lockfile in a clean, reproducible way for CI |
-| `npm run typecheck` | Verifies TypeScript configuration and catches typed config issues before deployment |
-| `npm run build` | Builds the static Docusaurus site and confirms the documentation renders successfully |
-| `npx vercel pull --yes --environment=preview` | Downloads Vercel project configuration and environment variables into the CI workspace |
-| `npx vercel build` | Produces the deployment artifact locally so the same artifact can be tested and deployed |
-| `npx vercel deploy --prebuilt` | Uploads the previously built artifact as a preview deployment without rebuilding |
-| `npx vercel deploy --prebuilt --prod` | Uploads the prebuilt artifact to the production environment |
+| `bun install --frozen-lockfile` | Installs dependencies exactly as defined in `bun.lockb` for reproducible CI builds |
+| `bun run typecheck` | Verifies TypeScript configuration and catches typed config issues before deployment |
+| `bun run build` | Builds the static Docusaurus site and confirms the documentation renders successfully |
+| `bunx vercel pull --yes --environment=preview` | Downloads Vercel project configuration and environment variables into the CI workspace, while `--yes` skips interactive confirmation prompts so the command can run unattended |
+| `bunx vercel build` | Produces the deployment artifact locally so the same artifact can be tested and deployed |
+| `bunx vercel deploy --prebuilt` | Uploads the previously built artifact as a preview deployment without rebuilding |
+| `bunx vercel deploy --prebuilt --prod` | Uploads the prebuilt artifact to the production environment |
 
 ### Required Secrets
 
@@ -164,6 +163,8 @@ Store the following values in GitHub Actions secrets:
 | `VERCEL_PROJECT_ID` | Identifies the target Vercel project |
 
 > Use a dedicated token with the minimum access required for deployment.
+>
+> Never paste real token values into workflow files or documentation examples. Create the token in Vercel, then store it only in your CI platform's secure secret store.
 
 ## Option 3: Deploy from External Pipelines
 
@@ -172,9 +173,9 @@ Use this option when your organization manages releases through Azure DevOps, Gi
 ### Generic Pipeline Flow
 
 1. Check out the repository
-2. Install dependencies with `npm ci`
-3. Run validation such as `npm run typecheck`
-4. Build the site with `npm run build`
+2. Install dependencies with `bun install --frozen-lockfile`
+3. Run validation such as `bun run typecheck`
+4. Build the site with `bun run build`
 5. Authenticate to Vercel
 6. Run `vercel pull`, `vercel build`, and `vercel deploy --prebuilt`
 
@@ -192,32 +193,34 @@ pool:
 steps:
   - checkout: self
 
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '20.x'
+  - script: curl -fsSL https://bun.sh/install | bash
+    displayName: Install Bun
 
-  - script: npm ci
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bun --version
+    displayName: Verify Bun setup
+
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bun install --frozen-lockfile
     displayName: Install dependencies
 
-  - script: npm run typecheck
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bun run typecheck
     displayName: Validate TypeScript configuration
 
-  - script: npm run build
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bun run build
     displayName: Build Docusaurus site
 
-  - script: npx vercel pull --yes --environment=production --token=$(VERCEL_TOKEN)
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bunx vercel pull --yes --environment=production --token=$(VERCEL_TOKEN)
     displayName: Pull Vercel configuration
     env:
       VERCEL_ORG_ID: $(VERCEL_ORG_ID)
       VERCEL_PROJECT_ID: $(VERCEL_PROJECT_ID)
 
-  - script: npx vercel build --token=$(VERCEL_TOKEN)
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bunx vercel build --token=$(VERCEL_TOKEN)
     displayName: Build Vercel artifact
     env:
       VERCEL_ORG_ID: $(VERCEL_ORG_ID)
       VERCEL_PROJECT_ID: $(VERCEL_PROJECT_ID)
 
-  - script: npx vercel deploy --prebuilt --prod --token=$(VERCEL_TOKEN)
+  - script: export BUN_INSTALL="$HOME/.bun" && export PATH="$BUN_INSTALL/bin:$PATH" && bunx vercel deploy --prebuilt --prod --token=$(VERCEL_TOKEN)
     displayName: Deploy production release
     env:
       VERCEL_ORG_ID: $(VERCEL_ORG_ID)
@@ -234,9 +237,9 @@ steps:
 
 ### Build and Validate Before Deploying
 
-- Run `npm ci` to guarantee clean dependency installation
-- Run `npm run typecheck` before deployment to catch configuration issues early
-- Run `npm run build` to verify that the documentation site compiles successfully
+- Run `bun install --frozen-lockfile` to guarantee clean dependency installation
+- Run `bun run typecheck` before deployment to catch configuration issues early
+- Run `bun run build` to verify that the documentation site compiles successfully
 
 ### Keep Environments Separate
 
@@ -249,10 +252,11 @@ steps:
 - Store tokens and project identifiers in the CI platform's secret store
 - Rotate deployment tokens regularly
 - Never commit `.vercel` credentials, secrets, or environment values to the repository
+- Keep `.vercel` in `.gitignore` so local project metadata is not committed by accident
 
 ### Prefer Reproducible Builds
 
-- Commit `package-lock.json`
+- Commit `bun.lockb`
 - Pin the Node.js version used by CI and Vercel
 - Prefer `vercel build` + `vercel deploy --prebuilt` so the deployed artifact matches the validated artifact
 
