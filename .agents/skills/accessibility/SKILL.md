@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: web-quality-skills
   version: "1.1"
+compatibility: opencode
 ---
 
 # Accessibility (a11y)

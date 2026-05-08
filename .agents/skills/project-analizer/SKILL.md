@@ -3,6 +3,7 @@ name: project-analizer
 description: Find and analyze the project's content to get a comprehensive understanding of the codebase, architecture, and functionality. Use this skill when the user asks to analyze a project, understand its structure, explore its content or gain insights about its components and dependencies. This skill is essential for onboarding, debugging, refactoring, or planning new features.
 model: GPT-4.1 (copilot)
 allowed-tools: ["Read", "Search", "Grep", "Bash(find*)", "Bash(ls *)"]
+compatibility: opencode
 ---
 
 This skill guides the process of finding and analyzing a project's content to gain a comprehensive understanding of its codebase, architecture, and functionality.

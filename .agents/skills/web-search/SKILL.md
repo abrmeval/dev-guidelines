@@ -3,6 +3,7 @@ name: web-search
 description: Use this skill to perform web searches when the user asks for information that may not be available in the current context or when they explicitly request to search the web. This skill is essential for finding up-to-date information, researching topics, or gathering data from online sources.
 model: GPT-4.1 (copilot)
 allowed-tools: ["Read", "Search", "Grep", "WebSearch", "WebFetch"]
+compatibility: opencode
 ---
 This skill guides the process of performing web searches to find information that may not be available in the current context or when the user explicitly requests to search the web.
 
