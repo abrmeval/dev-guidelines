@@ -42,7 +42,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
-          editUrl: 'https://github.com/abrmeval/dev-guidelines/edit/main/dev-guidelines/',
+          editUrl: 'https://github.com/abrmeval/dev-guidelines/tree/main/',
         },
         blog: false,
         theme: {
