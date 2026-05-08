@@ -1,8 +1,9 @@
 ---
-name: commit
-allowed-tools: Bash(git status:*), Bash(git commit:*), Bash(git push:*), Bash(git log:*)
-description: Create a git commit
+title: Git Commit Conventions
+description: Commit message format and guidelines following the Conventional Commits specification
+sidebar_position: 1
 ---
+
 
 ## Context
 

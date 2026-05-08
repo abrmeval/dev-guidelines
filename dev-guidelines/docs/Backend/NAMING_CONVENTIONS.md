@@ -1,3 +1,9 @@
+---
+title: Backend Naming Conventions
+description: C# and Node.js naming conventions for backend code
+sidebar_position: 1
+---
+
 C# language naming conventions should be followed for all code in this repository. This includes:
 - Classes: PascalCase (e.g., `MyClass`)
 - Methods: PascalCase (e.g., `MyMethod()`)

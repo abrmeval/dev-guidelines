@@ -1,0 +1,8 @@
+{
+  "label": ".NET Architecture",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Architecture patterns for .NET and ASP.NET Core applications"
+  }
+}

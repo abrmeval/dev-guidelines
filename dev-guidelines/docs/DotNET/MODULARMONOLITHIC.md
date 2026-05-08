@@ -1,3 +1,9 @@
+---
+title: Modular Monolith Architecture
+description: Single deployable unit internally divided into well-defined, loosely coupled modules
+sidebar_position: 3
+---
+
 # Modular Monolith Architecture (.NET)
 
 A Modular Monolith is a **single deployable unit** that is internally divided into **well-defined, loosely coupled modules**, each owning its own domain logic, data access, and public API. It combines the operational simplicity of a monolith with the organizational clarity of microservices.

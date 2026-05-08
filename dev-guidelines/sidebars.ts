@@ -1,17 +1,5 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
 const sidebars: SidebarsConfig = {
   guidelinesSidebar: [
     'intro',
@@ -25,6 +13,8 @@ const sidebars: SidebarsConfig = {
         'DotNET/MODULARMONOLITHIC',
         'DotNET/MONOLITHIC',
         'DotNET/MVC',
+        'DotNET/CLEAN_ARCHITECTURE',
+        'DotNET/CLEAN_ARCHITECTURE_CORE_PATTERN',
       ],
     },
     {
@@ -103,6 +93,7 @@ const sidebars: SidebarsConfig = {
         'Documentation/STRUCTURE',
         'Documentation/NAMING_CONVENTIONS',
         'Documentation/TOOLS',
+        'Documentation/AI',
       ],
     },
     {
@@ -113,6 +104,14 @@ const sidebars: SidebarsConfig = {
         'Testing/UnitTesting/TOOLS',
         'Testing/Integration/TOOLS',
         'Testing/End-End/TOOLS',
+        {
+          type: 'category',
+          label: 'Other Tools',
+          items: [
+            'Testing/Others/FRONT_END',
+            'Testing/Others/BACK-END',
+          ],
+        },
       ],
     },
   ],

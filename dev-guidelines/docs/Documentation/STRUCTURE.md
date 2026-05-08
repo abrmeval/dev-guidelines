@@ -1,3 +1,9 @@
+---
+title: Documentation Structure
+description: Required structure and content for README and documentation files
+sidebar_position: 2
+---
+
 README files
 ----------------
 README files should be named `README.md` and placed in the root directory of each project or subdirectory to provide an overview of the contents and purpose of that directory. The README should include:

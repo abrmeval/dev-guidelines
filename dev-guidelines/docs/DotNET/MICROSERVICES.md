@@ -1,3 +1,9 @@
+---
+title: Microservices Architecture
+description: Independently deployable services each owning a single business capability
+sidebar_position: 2
+---
+
 # Microservices Architecture (.NET)
 
 Microservices decompose an application into **small, independently deployable services**, each owning a single business capability, its own data store, and its own deployment lifecycle. In .NET, this is the recommended architecture for large-scale, cloud-native systems.

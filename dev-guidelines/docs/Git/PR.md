@@ -1,7 +1,9 @@
 ---
-allowed-tools: Bash(git status:*), Bash(git log:*), Bash(gh pr create:*)
-description: Create a GitHub pull request using gh CLI
+title: Pull Request Conventions
+description: PR title format, description guidelines, and how to create PRs with the gh CLI
+sidebar_position: 2
 ---
+
 
 ## Context
 

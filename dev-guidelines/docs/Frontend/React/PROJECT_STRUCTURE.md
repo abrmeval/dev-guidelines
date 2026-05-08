@@ -1,3 +1,9 @@
+---
+title: React Project Structure
+description: Recommended folder and file structure for React projects using Vite and Bun
+sidebar_position: 2
+---
+
 # React Project Structure (Vite + Bun)
 
 This document defines the recommended folder and file structure for React projects using Vite as the build tool and Bun as the runtime/package manager. The structure follows a feature-first approach for scalable, maintainable codebases.

@@ -1,3 +1,9 @@
+---
+title: React Naming Conventions
+description: Naming conventions for React projects using Vite and Bun
+sidebar_position: 1
+---
+
 # React Naming Conventions
 
 React naming conventions should be followed for all code in this repository. This includes:

@@ -1,3 +1,9 @@
+---
+title: Database Naming Conventions
+description: PostgreSQL and SQL Server naming standards for tables, columns, indexes, and constraints
+sidebar_position: 1
+---
+
 Postgresql should use snake_case for table and column names, and singular nouns for table names. For example, a table for storing user information should be named "user" and a column for storing the user's email should be named "email".
 The primary key column should be named "`{table_name}_id`", for example "user_id" for the "user" table. Foreign key columns should be named "`{referenced_table_name}_id`", for example "order_id" for a foreign key referencing the "order" table.
 Indexes should be named "`idx_{table_name}_{column_name}`", for example "idx_user_email

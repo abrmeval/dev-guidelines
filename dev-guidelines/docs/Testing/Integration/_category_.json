@@ -1,0 +1,8 @@
+{
+  "label": "Integration Testing",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Integration testing tools and frameworks"
+  }
+}

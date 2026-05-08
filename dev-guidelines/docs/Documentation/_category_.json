@@ -1,0 +1,8 @@
+{
+  "label": "Documentation",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation standards, required files, and tooling"
+  }
+}

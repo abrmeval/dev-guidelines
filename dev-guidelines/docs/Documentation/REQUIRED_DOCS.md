@@ -1,3 +1,9 @@
+---
+title: Required Documents
+description: Documents required for every project to ensure consistency and clarity
+sidebar_position: 1
+---
+
 The following documents are required for every project to ensure consistency and clarity. 
 All documents except for README files and AI documents, should be placed in a `docs` folder in the root directory of the project, and should follow the naming conventions outlined in the NAMING_CONVENTIONS.md file.
 

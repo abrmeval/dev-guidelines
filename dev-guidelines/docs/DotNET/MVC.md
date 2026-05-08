@@ -1,3 +1,9 @@
+---
+title: MVC Architecture
+description: Model-View-Controller pattern for ASP.NET Core applications
+sidebar_position: 5
+---
+
 In an  MVC or ASP.NET Core application with .NET, the project structure is typically organized into three main layers: Model, View, and Controller. Each layer has its own responsibilities and helps to separate concerns within the application.
 It should follow the following structure:
 - /Controllers: This folder contains the controller classes that handle incoming HTTP requests, process user input, and return responses. Controllers act as intermediaries between the Model and View layers.

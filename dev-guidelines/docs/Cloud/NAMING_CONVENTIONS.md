@@ -1,3 +1,9 @@
+---
+title: Cloud Resource Naming Conventions
+description: Azure resource naming standards and conventions
+sidebar_position: 1
+---
+
 # Azure Resource Naming Convention Guide
 
 ## Overview

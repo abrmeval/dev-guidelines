@@ -1,3 +1,9 @@
+---
+title: Vanilla JS Naming Conventions
+description: JavaScript naming conventions for Vanilla JS projects
+sidebar_position: 1
+---
+
 Folders sometimes use kebab-case (e.g., `my-folder`) eg. `my-frontend-project`
 Files should use kebab-case (e.g., `my-file.js`) eg. `app.js`
 Classes should use PascalCase (e.g., `MyClass`) eg. `MyComponent.js`

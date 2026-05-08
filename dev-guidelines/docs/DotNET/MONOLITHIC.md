@@ -1,3 +1,9 @@
+---
+title: Monolithic (N-Tier) Architecture
+description: Layered N-tier architecture with all components in a single deployable unit
+sidebar_position: 4
+---
+
 # Monolithic Architecture (.NET)
 
 A monolithic application is built as a **single deployable unit** where all components (UI, business logic, data access) run in one process. In .NET, this typically takes the form of a **layered (N-tier) architecture** inside a single ASP.NET Core solution.

@@ -1,3 +1,9 @@
+---
+title: Vertical Slice Architecture
+description: Feature-first architecture organizing code by use case rather than technical layer
+sidebar_position: 1
+---
+
 # Vertical Slice Architecture (.NET)
 
 Vertical Slice Architecture (VSA) organizes code by **feature/use case** rather than by technical layer. Each "slice" is a self-contained vertical cut through all application concerns — from the HTTP endpoint down to the database — for a single feature or operation.

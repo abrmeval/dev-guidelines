@@ -1,3 +1,9 @@
+---
+title: Vue Project Structure
+description: Recommended folder and file structure for Vue 3 projects using Vite and Bun
+sidebar_position: 2
+---
+
 # Vue Project Structure (Vite + Bun)
 
 This document defines the recommended folder and file structure for Vue 3 projects using Vite as the build tool and Bun as the runtime/package manager. The structure uses the Composition API with `<script setup>`, Pinia for state management, and Vue Router for routing.

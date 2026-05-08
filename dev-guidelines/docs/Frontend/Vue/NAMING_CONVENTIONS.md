@@ -1,3 +1,9 @@
+---
+title: Vue Naming Conventions
+description: Naming conventions for Vue 3 projects using Vite and Bun
+sidebar_position: 1
+---
+
 # Vue Naming Conventions (Vite + Bun)
 
 Vue naming conventions should be followed for all code in this repository. This includes Vue 3 with the Composition API and `<script setup>` syntax.
