@@ -88,6 +88,17 @@ All AI agents and automated tools must follow the mandates here unless explicitl
 - `.env.local`/`.env.production`/etc. for overrides
 - Vite config: `vite.config.ts`
 
+### Secrets & Sensitive Data
+- **Never include real secrets, credentials, API keys, tokens, passwords, connection strings, or any sensitive data in documentation or source files.**
+- All examples and code snippets must use clearly labelled `<placeholder>` values instead. Examples:
+  ```env
+  DATABASE_URL=<your-database-url>
+  API_KEY=<your-api-key>
+  JWT_SECRET=<your-jwt-secret>
+  ```
+- Real values belong only in `.env.local`, `.env.production`, or a secrets manager — all of which must be gitignored.
+- If a secret is accidentally committed, treat it as compromised immediately and rotate it.
+
 ### Error Handling
 - Always handle possible error branches (try/catch for async, fallback UI for React, error boundaries)
 - Never suppress errors silently; log or re-throw as appropriate
@@ -157,4 +168,4 @@ All AI agents and automated tools must follow the mandates here unless explicitl
 - docs/Frontend/Vue/NAMING_CONVENTIONS.md
 - docs/Documentation/STRUCTURE.md
 
-*Last Updated: 07 May 2026*
+*Last Updated: 08 May 2026*

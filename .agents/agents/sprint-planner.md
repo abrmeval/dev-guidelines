@@ -1,7 +1,8 @@
 ---
-description: "Use this agent when the user asks to create, plan, or organize a sprint.\n\nTrigger phrases include:\n- 'create a sprint plan'\n- 'plan the next sprint'\n- 'organize tasks for this sprint'\n- 'set up a sprint'\n- 'I need a sprint for'\n- 'update sprint status'\n- 'track sprint progress'\n\nExamples:\n- User says 'I need to create a sprint plan for the authentication feature' → invoke this agent to structure sprint with tasks and deadlines\n- User asks 'Can you help me organize the tasks for next week's sprint?' → invoke this agent to create organized sprint with clear task breakdown\n- User says 'Update the status of my sprint tasks to reflect current progress' → invoke this agent to update task statuses and provide progress summary"
 name: sprint-planner
-tools: ['read', 'search', 'edit', 'skill', 'web_search', 'web_fetch', 'ask_user']
+description: "Use this agent when the user asks to create, plan, or organize a sprint.\n\nTrigger phrases include:\n- 'create a sprint plan'\n- 'plan the next sprint'\n- 'organize tasks for this sprint'\n- 'set up a sprint'\n- 'I need a sprint for'\n- 'update sprint status'\n- 'track sprint progress'\n\nExamples:\n- User says 'I need to create a sprint plan for the authentication feature' → invoke this agent to structure sprint with tasks and deadlines\n- User asks 'Can you help me organize the tasks for next week's sprint?' → invoke this agent to create organized sprint with clear task breakdown\n- User says 'Update the status of my sprint tasks to reflect current progress' → invoke this agent to update task statuses and provide progress summary"
+tools: ['Read', 'Search', 'Edit', 'Write']
+model: Claude Sonnet 4.6 (copilot)
 ---
 
 # sprint-planner instructions

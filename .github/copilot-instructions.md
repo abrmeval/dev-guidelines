@@ -202,7 +202,14 @@ When generating code in **any project** associated with this guidelines repo:
 4. Every new file must end with `## References` and `*Last Updated: ...*`
 5. Do not add new files that duplicate existing ones — check the folder structure first
 6. When unsure about scope or placement, ask the developer rather than assuming
+7. **Never include real secrets, credentials, API keys, tokens, passwords, or connection strings in any documentation file.** Always use clearly labelled `<placeholder>` values in examples:
+   ```env
+   API_KEY=<your-api-key>
+   DATABASE_URL=<your-database-url>
+   JWT_SECRET=<your-jwt-secret>
+   ```
+   Real values belong only in gitignored env files or a secrets manager.
 
 ---
 
-*Last Updated: 07 May 2026*
+*Last Updated: 08 May 2026*
