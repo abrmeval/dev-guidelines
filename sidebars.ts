@@ -94,6 +94,18 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'AI Providers',
+      collapsed: false,
+      items: [
+        'AI/AGENT_STANDARD',
+        'AI/OPENCODE',
+        'AI/CLAUDE',
+        'AI/COPILOT',
+        'AI/COMPARISON',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Documentation',
       collapsed: false,
       items: [
