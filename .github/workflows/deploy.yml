@@ -61,5 +61,3 @@ jobs:
                 echo "❌ Deploy failed." >> $GITHUB_STEP_SUMMARY
               else
                 echo "⚠️ Build and Deploy status is unknown." >> $GITHUB_STEP_SUMMARY
-
-
