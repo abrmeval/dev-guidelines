@@ -60,4 +60,6 @@ jobs:
               elif [ "${{ needs.deploy.result }}" == "failure" ]; then
                 echo "❌ Deploy failed." >> $GITHUB_STEP_SUMMARY
               else
-                echo "⚠️ Build and Deploy status is unknown." >> $GITHUB_STEP_SUMMARY
+                 echo "⚠️ Build and Deploy status is unknown." >> $GITHUB_STEP_SUMMARY
+              fi
+
