@@ -1,0 +1,8 @@
+{
+  "label": "Cloud Infrastructure",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Deployment guidance and infrastructure delivery patterns for cloud-hosted applications."
+  }
+}
