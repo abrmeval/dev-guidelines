@@ -1,5 +1,5 @@
 ---
-name: project-analizer
+name: project-analyzer
 description: Find and analyze the project's content to get a comprehensive understanding of the codebase, architecture, and functionality. Use this skill when the user asks to analyze a project, understand its structure, explore its content or gain insights about its components and dependencies. This skill is essential for onboarding, debugging, refactoring, or planning new features.
 compatibility: opencode
 ---
