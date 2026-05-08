@@ -47,17 +47,19 @@ jobs:
     
     summary:
         name: Generate Summary
+        needs: [build, deploy]
         runs-on: ubuntu-latest
         if: always() # Run this job even if the previous jobs fail
         steps:
-            - name: Build status
-              run: |
-                if [ ${{ needs.build.result }} == 'success' ] && [ ${{ needs.deploy.result }} == 'success' ]; then
-                  echo "✅ Build and Deploy succeeded." >> $GITHUB_STEP_SUMMARY
-                elif [ ${{ needs.build.result }} == 'failure' ]; then
-                  echo "❌ Build failed." >> $GITHUB_STEP_SUMMARY
-                elif [ ${{ needs.deploy.result }} == 'failure' ]; then
-                  echo "❌ Deploy failed." >> $GITHUB_STEP_SUMMARY
-                else
-                  echo "⚠️ Build and Deploy status is unknown." >> $GITHUB_STEP_SUMMARY
+          - name: Build and Deploy Status
+            run: |
+              if [ "${{ needs.build.result }}" == "success" ] && [ "${{ needs.deploy.result }}" == "success" ]; then
+                echo "✅ Build and Deploy succeeded." >> $GITHUB_STEP_SUMMARY
+              elif [ "${{ needs.build.result }}" == "failure" ]; then
+                echo "❌ Build failed." >> $GITHUB_STEP_SUMMARY
+              elif [ "${{ needs.deploy.result }}" == "failure" ]; then
+                echo "❌ Deploy failed." >> $GITHUB_STEP_SUMMARY
+              else
+                echo "⚠️ Build and Deploy status is unknown." >> $GITHUB_STEP_SUMMARY
+
 
