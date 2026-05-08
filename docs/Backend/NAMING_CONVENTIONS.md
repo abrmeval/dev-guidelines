@@ -1,3 +1,5 @@
+# Naming Conventions for Backend Code in .NET
+
 C# language naming convetions should be followed for all code in this repository. This includes:
 - Classes: PascalCase (e.g., `MyClass`)
 - Methods: PascalCase (e.g., `MyMethod()`)
@@ -28,10 +30,13 @@ C# language naming convetions should be followed for all code in this repository
 - Generic type parameters: PascalCase (e.g., `T`, `TKey`, `TValue`)
 
 
-NODE.JS naming conventions should be followed for all code in this repository. This includes:
+# Naming Conventions for code in Node.js
+
+Node.js naming conventions should be followed for all code in this repository. This includes:
 - Variables: camelCase (e.g., `myVariable`)
 - Constants: UPPER_SNAKE_CASE (e.g., `MY_CONSTANT`)
 - Functions: camelCase (e.g., `myFunction()`)
 - Classes: PascalCase (e.g., `MyClass`)
 - Modules: PascalCase (e.g., `MyModule`)
 - Packages: PascalCase (e.g., `MyPackage`)
+- Async functions: camelCase with an "Async" suffix (e.g., `myFunctionAsync()`)
