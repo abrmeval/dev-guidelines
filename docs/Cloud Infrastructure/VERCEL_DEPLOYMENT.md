@@ -58,7 +58,7 @@ This is the simplest and recommended starting point for most documentation websi
 | Setting | Recommended Value | What It Does |
 |---|---|---|
 | Framework Preset | `Docusaurus` or `Other` | Helps Vercel apply sensible defaults for the site |
-| Install Command | `bun install --frozen-lockfile` | Installs dependencies from the Bun lockfile without changing locked versions |
+| Install Command | `bun install --frozen-lockfile` | Installs dependencies from the Bun lockfile and fails if the lockfile and dependency manifest drift out of sync |
 | Build Command | `bun run build` | Generates the static Docusaurus site in the build output folder |
 | Output Directory | `build` | Tells Vercel which generated files should be published |
 | Node.js Version | Match the repo standard | Keeps local, CI, and Vercel builds consistent |
@@ -144,10 +144,10 @@ jobs:
 
 | Command | Purpose |
 |---|---|
-| `bun install --frozen-lockfile` | Installs dependencies exactly as defined in `bun.lockb` for reproducible CI builds |
+| `bun install --frozen-lockfile` | Installs dependencies exactly as defined in `bun.lockb` and stops the build if dependency versions drift |
 | `bun run typecheck` | Verifies TypeScript configuration and catches typed config issues before deployment |
 | `bun run build` | Builds the static Docusaurus site and confirms the documentation renders successfully |
-| `bunx vercel pull --yes --environment=preview` | Downloads Vercel project configuration and environment variables into the CI workspace, while `--yes` skips interactive confirmation prompts so the command can run unattended |
+| `bunx vercel pull --yes --environment=preview` | Downloads Vercel project configuration and the preview environment values into the CI workspace, while `--yes` skips interactive confirmation prompts so the command can run unattended |
 | `bunx vercel build` | Produces the deployment artifact locally so the same artifact can be tested and deployed |
 | `bunx vercel deploy --prebuilt` | Uploads the previously built artifact as a preview deployment without rebuilding |
 | `bunx vercel deploy --prebuilt --prod` | Uploads the prebuilt artifact to the production environment |
@@ -232,6 +232,8 @@ steps:
 - They fit into existing enterprise approval processes
 - They make it easier to reuse shared validation and security stages
 - They let teams deploy Vercel alongside other infrastructure changes
+
+> For production pipelines, pin the Bun version you install or bake it into a trusted build image. Avoid relying on an unpinned installer for long-lived CI/CD workflows.
 
 ## Deployment Best Practices
 
