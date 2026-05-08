@@ -77,6 +77,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Cloud Infrastructure',
+      collapsed: false,
+      items: [
+        'Cloud Infrastructure/VERCEL_DEPLOYMENT',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Git',
       collapsed: false,
       items: [
