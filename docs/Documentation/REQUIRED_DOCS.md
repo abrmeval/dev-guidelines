@@ -15,7 +15,7 @@ Required Documents:
 - CHANGELOG.md --> Log of changes of the project(s)
 - CONTRIBUTING.md --> Contribution steps
 - /docs/ARCHITECTURE.md --> Architecture of the project(s)
-- /docs/DEPENDENCIES.md --> Denpendencies of the project(s)
+- /docs/DEPENDENCIES.md --> Dependencies of the project(s)
 - /docs/STACK.md --> Stack used for the project(s)
 - /docs/PROJECT_STRUCTURE.md --> Folder structure of the project(s)
 - /docs/EXTERNAL_SERVICES.md --> External services integrated with the project(s)
