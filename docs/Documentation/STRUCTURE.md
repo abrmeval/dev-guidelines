@@ -9,12 +9,17 @@ README files
 README files should be named `README.md` and placed in the root directory of each project or subdirectory to provide an overview of the contents and purpose of that directory. The README should include:
 - A title that matches the name of the project or subdirectory
 - A brief description of the project or subdirectory
+- Shields or badges (if applicable) to indicate build status, coverage, or other relevant information
 - An Overview of the project structure and contents
 - Tech stack and tools used
 - Getting Started instructions (if applicable)
-   - prerequisites
-   - installation steps
+   - Prerequisites
+   - Installation steps
+   - Configuration instructions (if applicable)
+   - Alternative installation methods (if applicable)
+- A brief overview of the architecture (if applicable)
 - Project structure (Files and directories with brief descriptions)
+- Cloud resources used (if applicable) -> Reference to the CLOUD_RESOURCES.md file for more detailed documentation
 - Troubleshooting tips (if applicable)
 - Reference to the docs folder for more detailed documentation (if applicable)
 - Links to relevant documentation or resources
