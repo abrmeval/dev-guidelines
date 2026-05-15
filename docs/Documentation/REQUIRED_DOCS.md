@@ -13,7 +13,7 @@ All documents except for README files and AI documents, should be placed in a `d
 Required Documents:
 - README.md --> README file containing a general overview of the project
 - CHANGELOG.md --> Log of changes of the project(s)
-- CONTRIBUTING.md --> Contibution steps
+- CONTRIBUTING.md --> Contribution steps
 - /docs/ARCHITECTURE.md --> Architecture of the project(s)
 - /docs/DEPENDENCIES.md --> Denpendencies of the project(s)
 - /docs/STACK.md --> Stack used for the project(s)
