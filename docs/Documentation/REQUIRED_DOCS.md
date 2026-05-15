@@ -25,3 +25,10 @@ Required Documents:
 - /docs/INFRASTRUCTURE/DEPLOYMENT.md --> Documentation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc
 - /docs/DEV_PLANNING/* --> Documentation related to functional/non functional requirementes and all dsocumentation provided by the development team
 - /docs/BUSINESS/* --> Documentation related to business rules and business related data
+
+## References
+
+- [NAMING_CONVENTIONS.md](./NAMING_CONVENTIONS.md)
+- [STRUCTURE.md](./STRUCTURE.md)
+
+*Last Updated: 15 May 2026*
