@@ -22,6 +22,6 @@ Required Documents:
 - /docs/TESTING_TOOLS.md --> Tools used for testing the project(s)
 - /docs/INFRASTRUCTURE/WORKFLOWS.md --> Documentation related to CI/CD workflows, deployment steps, structure of a workflow file, what is being deployed, etc
 - /docs/INFRASTRUCTURE/CLOUD_RESOURCES.md --> Cloud resources in the project(s)
-- /docs/INFRASTRUCTURE/DEPLOYMENT.md --> Documetation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc
+- /docs/INFRASTRUCTURE/DEPLOYMENT.md --> Documentation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc
 - /docs/DEV_PLANNING/* --> Documentation related to functional/non functional requirementes and all dsocumentation provided by the development team
 - /docs/BUSINESS/* --> Documentation related to business rules and business related data
