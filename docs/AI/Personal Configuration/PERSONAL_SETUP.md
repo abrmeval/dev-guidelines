@@ -12,7 +12,7 @@ There is a global configuration so that the AI agents work consistently across a
 
 ### .agents directory
 
-In windows, the global configuration is stored in `%USERPROFILE%\agents` and includes:
+In Windows, the global configuration is stored in `%USERPROFILE%\agents` and includes:
 - AGENTS.md: Global instructions for the AI agents, including skill and agent definitions.
 - skills: Global skills that can be used across all projects.
 - commands: Global commands that can be used across all projects.
@@ -34,7 +34,7 @@ The same happens with other AI agents from different providers.
 
 ### Skills
 Skills are in the `~/.agents` global directory. The skills there will be referenced in every AI provider global directory by using symbolic links.
-For example, in `~/.claude/skills` there will be  symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills will have a standard structure with compatible options only.
+For example, in `~/.claude/skills` there will be a symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills will have a standard structure with compatible options only.
 
 Domain specific skills:
 - microsoft-code-reference
@@ -55,9 +55,9 @@ General dev skills:
 
 ## OPENCODE Global Configuration
 
-For opencode, the global configuration is stored in `~/.opencode/.
+For OpenCode, the global configuration is stored in `~/.opencode/.
 configurations, and user-specific options.
-In windows, the global configuration is stored in `%USERPROFILE%\.config\opencode`.
+In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencode`.
 - skills: Global skills that can be used across all projects.
 - commands: Global commands that can be used across all projects.
 - agents: Global agents that can be used across all projects.

@@ -4,11 +4,11 @@ sidebar_position: 2
 ---
 
 # AGENTS.md Abrahim guidelines
-Common guidelines for ai agents  across all repositories. These guidelines are intended to ensure that agents operate effectively, maintain code quality, and adhere to best practices.
+Common guidelines for AI agents across all repositories. These guidelines are intended to ensure that agents operate effectively, maintain code quality, and adhere to best practices.
 ---
 ## General Guidelines
 - Always provide the user with options before taking an action unless specified by the user to allow to continue without asking the whole session.
-- Always use arrow icons, dashes, asteriks and numbers instead of emojis for lists and steps.
+- Always use arrow icons, dashes, asterisks and numbers instead of emojis for lists and steps.
 - When doing bug fixes, always start with reproducing the bug in an END-TO-END setting as closely aligned with how an end user would experience it. 
   This ensures that you find the real problem so your fix will actually solve it.
 - Always refer to official documentation for any libraries, frameworks, or tools being used.

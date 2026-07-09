@@ -111,13 +111,13 @@ For each task in the sprint, follow this sequence:
 
 ### Backend
 
-- Always complie after modifying backend files to verify no compilation errors
+- Always compile after modifying backend files to verify no compilation errors
 - Follow the architecture already defined in this project
 - Follow patterns and conventions specified in this project
 
 ### Frontend
 
-- Always complie after modifying frontend files
+- Always compile after modifying frontend files
 - Follow patterns and conventions specified in this project
 
 ### File Modification Guidelines

@@ -68,7 +68,7 @@ Run the relevant checklist(s) below for each file.
 - [ ] It has no unused references or dependencies
 - [ ] Every file or feature is in the right location according to its purpose
 
-### Naming Conventions (from NAMING_CONVENTIONS).md
+### Naming Conventions (from NAMING_CONVENTIONS.md)
 
 - [ ] It follows naming conventions based on the stack and the definitions in this project
 - [ ] Code has clear names for variables, functions, methods, classes and other elements
@@ -76,7 +76,7 @@ Run the relevant checklist(s) below for each file.
 
 ### Code Quality Rules
 
-- [ ] It follow best practices and patterns defined in this project
+- [ ] It follows best practices and patterns defined in this project
 - [ ] No unused variables or parameters
 - [ ] Nullable reference types respected — no suppression of nullable warnings without justification
 - [ ] No zero-tolerance policy bypass
@@ -86,10 +86,10 @@ Run the relevant checklist(s) below for each file.
 
 ### Error Handling
 
-- [ ] It handles critical exceptions properly that may occured
-- [ ] It uses a Reponse wrapper when working in the backend
-- [ ] The full original error messages are logged in the backend and brief (not too much informational) messages are returned to the frontend 
-- [ ] Frendly/readable error messages are shown to the end user in the frontend
+- [ ] It handles critical exceptions properly that may occur
+- [ ] It uses a Response wrapper when working in the backend
+- [ ] The full original error messages are logged in the backend and brief (not too informative) messages are returned to the frontend 
+- [ ] Friendly/readable error messages are shown to the end user in the frontend
 
 ### Documentation files
 - [ ] Documents have no secrets or credentials

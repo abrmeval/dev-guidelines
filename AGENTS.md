@@ -112,7 +112,7 @@ All AI agents and automated tools must follow the mandates here unless explicitl
   - First line ≤ 50 chars (summary)
   - Blank line
   - Up to 3 bullet points explaining what & why—never who
-  - N O  AI/Claude/Copilot attribution or co-authorship in messages
+  - NO AI/Claude/Copilot attribution or co-authorship in messages
 - PR title: Prefix with `PR:` and, if relevant, area in `[Area]` (e.g. `PR: [Testing] Improve coverage`)
 - Use `gh pr create --title "PR: ..." --body "..."`
 - See `docs/Git/Commit.md` and `docs/Git/PR.md` for full examples

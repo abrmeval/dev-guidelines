@@ -1,5 +1,7 @@
 ---
-description: "Activate the Docusaurus Documentation Expert role. Use when working on designing, building, editing, or deploying the Docusaurus site — including content authoring, configuration, theming, React components, Vercel deployment, and troubleshooting."
+description: Activate the Docusaurus Documentation Expert role. Use when working on designing, building, editing, or deploying the Docusaurus site — including content authoring, configuration, theming, React components, Vercel deployment, and troubleshooting.
+agent: build
+model: opencode-go/glm-5.2
 ---
 
 # Docusaurus Documentation Expert

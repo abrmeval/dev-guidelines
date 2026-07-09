@@ -26,7 +26,7 @@ This repo is the **single source of truth** for how code should be written, stru
 ```
 dev-guidelines/
 ├── docs/
-│   ├── Architecture.NET_Aproach/   # .NET architecture patterns
+│   ├── Architecture.NET_Approach/   # .NET architecture patterns
 │   ├── Backend/                    # C# and Node.js conventions
 │   ├── Cloud/                      # Cloud resource naming
 │   ├── Database/                   # DB naming conventions
@@ -174,13 +174,13 @@ When generating code in **any project** associated with this guidelines repo:
 
 | Pattern | File |
 |---|---|
-| Clean Architecture (4-layer CQRS/MediatR) | `docs/Architecture.NET_Aproach/CLEAN_ARCHITECTURE.md` |
-| Clean Architecture (3-layer Core variant) | `docs/Architecture.NET_Aproach/CLEAN_ARCHITECTURE_CORE_PATTERN.md` |
-| Modular Monolith | `docs/Architecture.NET_Aproach/MODULARMONOLITHIC.md` |
-| Monolithic (N-Tier) | `docs/Architecture.NET_Aproach/MONOLITHIC.md` |
-| Vertical Slice | `docs/Architecture.NET_Aproach/VERTICALSLICE.md` |
-| Microservices | `docs/Architecture.NET_Aproach/MICROSERVICES.md` |
-| MVC | `docs/Architecture.NET_Aproach/MVC.md` |
+| Clean Architecture (4-layer CQRS/MediatR) | `docs/Architecture.NET_Approach/CLEAN_ARCHITECTURE.md` |
+| Clean Architecture (3-layer Core variant) | `docs/Architecture.NET_Approach/CLEAN_ARCHITECTURE_CORE_PATTERN.md` |
+| Modular Monolith | `docs/Architecture.NET_Approach/MODULARMONOLITHIC.md` |
+| Monolithic (N-Tier) | `docs/Architecture.NET_Approach/MONOLITHIC.md` |
+| Vertical Slice | `docs/Architecture.NET_Approach/VERTICALSLICE.md` |
+| Microservices | `docs/Architecture.NET_Approach/MICROSERVICES.md` |
+| MVC | `docs/Architecture.NET_Approach/MVC.md` |
 
 ---
 

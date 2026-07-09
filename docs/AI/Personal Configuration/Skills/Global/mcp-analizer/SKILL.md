@@ -2,7 +2,7 @@
 title: MCP Analyzer
 sidebar_position: 1
 name: mcp-analizer
-description: Analize the current project stack and suggest mcp servers and skills based on the analysis. Use this skill when the user asks to analyze the project stack and get recommendations for mcp servers and skills. This skill is essential for onboarding, understanding the project architecture, and identifying relevant tools and skills for development.
+description: Analyze the current project stack and suggest MCP servers and skills based on the analysis. Use this skill when the user asks to analyze the project stack and get recommendations for MCP servers and skills. This skill is essential for onboarding, understanding the project architecture, and identifying relevant tools and skills for development.
 ---
 This skill guides the process of analyzing the current project stack and suggesting MCP servers and skills based on the analysis.
 

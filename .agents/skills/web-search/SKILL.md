@@ -21,7 +21,7 @@ This skill guides the process of performing web searches to find information tha
 - **News Outlets**: For current events, use established news organizations.
 - **Community Forums**: For practical advice and troubleshooting, consider forums like Stack Overflow or Reddit.
 
-#  Reliable sources
+# Reliable sources
 - Microsoft documentation
 - Google documentation
 - AWS documentation

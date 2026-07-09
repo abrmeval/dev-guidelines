@@ -66,7 +66,7 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
    - "Known Gaps": Blockers, dependencies, or uncertainties
 
 4. **Task Definition** (Each task must have):
-   - **Title**: Concise, actionable task name, example, "Task [#N] - [Tile]"
+   - **Title**: Concise, actionable task name, example, "Task [#N] - [Title]"
    - **Description**: What needs to be done and why
    - **Status**: One of [New | In Progress | Done | Removed]
    - **Steps/Instructions**: Numbered clear steps with specific implementation details
@@ -121,8 +121,8 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
 - When planning tasks, adhere to the conventions from the project already specified in the markdown files.
 - The timing estimated for every task will ALWAYS be in a human perspective of ONE developer.
 - Timing should be REAL according to tasks complexity.
-- If SPECIFIED, estimates could be in a human perspective of MANY developers, so tasks should be thought in parallel.
-- If SPECIFIED, estimates for every task could be in a AI agent perspective, so timing MUST be according to the capabilities of modern AI agents.
+- If SPECIFIED, estimates could be in a human perspective of MANY developers, so tasks should be thought of in parallel.
+- If SPECIFIED, estimates for every task could be in an AI agent perspective, so timing MUST be according to the capabilities of modern AI agents.
 
 ## Edge Case Handling
 
@@ -153,7 +153,7 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
 - Ensure even junior developers can follow task steps independently
 - Balance between detail and overwhelming information
 
-## File location and Naming
+## File Location and Naming
 - The sprint file should be in UPPERCASE following the pattern: "SPRINT-[#N].md"
-- Sprints starts from number 1
+- Sprints start from number 1
 - Sprint files should be in `docs/sprints` 

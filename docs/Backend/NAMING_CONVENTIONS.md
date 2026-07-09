@@ -30,7 +30,7 @@ C# language naming conventions should be followed for all code in this repositor
 - Async methods: PascalCase with an "Async" suffix (e.g., `MyMethodAsync()`)
 - Record types: PascalCase (e.g., `MyRecord`)
 - Delegates: PascalCase (e.g., `MyDelegate`)
--Structs: PascalCase (e.g., `MyStruct`)
+- Structs: PascalCase (e.g., `MyStruct`)
 - Generic type parameters: PascalCase (e.g., `T`, `TKey`, `TValue`)
 
 
