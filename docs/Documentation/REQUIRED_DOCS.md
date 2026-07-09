@@ -25,6 +25,9 @@ Required Documents:
 - /docs/INFRASTRUCTURE/DEPLOYMENT.md --> Documentation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc
 - /docs/DEV_PLANNING/* --> Documentation related to functional/non functional requirementes and all dsocumentation provided by the development team
 - /docs/BUSINESS/* --> Documentation related to business rules and business related data
+- /docs/NAMING_CONVENTIONS.md - Naming conventions to follow in this project for files and code
+- /docs/DESIGN_PRINCIPLES - SOLID, DRY, KISS, YAGNI, etc
+- /docs/DESIGN_PATTERNS -> Result Pattern, Options Pattern, Singleton, Value Object pattern, Repository pattern, etc.
 
 ## References
 

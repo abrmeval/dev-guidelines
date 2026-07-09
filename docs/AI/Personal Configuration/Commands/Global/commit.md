@@ -19,7 +19,6 @@ Based on the above changes, create a single git commit and then push to the curr
 - Leave a blank line after the first line
 - Add detailed bullet points explaining the work done (3 lines maximum)
 - Keep bullet points easy to understand and focused on technical changes
-- Use plain dash "-" for bullet points
-- Do NOT include any attribution, co-authorship, or mentions of AI assistance
+- Do NOT include any attribution, co-authorship, or mentions of Claude/AI assistance
 - Follow Conventional Commits specification
 - Focus on what was changed and why, not who created it
