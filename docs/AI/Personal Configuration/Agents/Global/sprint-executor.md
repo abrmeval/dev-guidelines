@@ -1,4 +1,6 @@
 ---
+title: Sprint Executor
+sidebar_position: 2
 description: |
   Use this agent when the user wants to execute a sprint or run sprint tasks.
 

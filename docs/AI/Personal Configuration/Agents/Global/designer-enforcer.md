@@ -1,4 +1,6 @@
 ---
+title: Designer Enforcer
+sidebar_position: 1
 description: |
   Use this agent to audit recently changed code against project design guidelines and best practices.
   It reads, searches, and reports — it never modifies files.

@@ -1,4 +1,6 @@
 ---
+title: SEO
+sidebar_position: 1
 name: seo
 description: Optimize for search engine visibility and ranking. Use when asked to "improve SEO", "optimize for search", "fix meta tags", "add structured data", "sitemap optimization", or "search engine optimization".
 license: MIT
@@ -20,7 +22,7 @@ Search ranking factors (approximate influence):
 | Content quality & relevance | ~40% | Partial (structure) |
 | Backlinks & authority | ~25% | ✗ |
 | Technical SEO | ~15% | ✓ |
-| Page experience (Core Web Vitals) | ~10% | See [Core Web Vitals](../core-web-vitals/SKILL.md) |
+| Page experience (Core Web Vitals) | ~10% | See Core Web Vitals |
 | On-page SEO | ~10% | ✓ |
 
 ---

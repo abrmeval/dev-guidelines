@@ -1,4 +1,6 @@
 ---
+title: PR Command
+sidebar_position: 2
 description: Create a GitHub pull request using gh CLI with proper title and description format
 ---
 

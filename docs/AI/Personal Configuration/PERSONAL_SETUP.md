@@ -18,17 +18,19 @@ In windows, the global configuration is stored in `%USERPROFILE%\agents` and inc
 - commands: Global commands that can be used across all projects.
 - agents: Global agents that can be used across all projects.
 This configuration will be read by all AI agents, including Claude Code, OpenCode, GitHub Copilot and others.
-Every AI provider adds its own configuration files and directory for theri agents. So in every directory, it will be included the corrsponding files but pointing to the same global configuration in agents.
+Every AI provider adds its own configuration files and directory for their agents. So in every directory will be included the corresponding files but pointing to the same global configuration in agents.
 
 ### AGENTS.md
 
 For example, for Claude Code, the global configuration is stored in `~/.claude/`.
 There will be a global CLAUDE.md file that will point to the global AGENTS.md file.
-The CLUADE.md file will only contain:
+There will be a symbolic link or shortcut renamed as CLAUDE.md that references AGENTS.md.
+
+An alternative option is adding the following in CLAUDE.md:
 ```markdown
 @AGENTS.md
 ```
-The same with other AI agents from different providers.
+The same happens with other AI agents from different providers.
 
 ### Skills
 Skills are in the `~/.agents` global directory. The skills there will be referenced in every AI provider global directory by using symbolic links.

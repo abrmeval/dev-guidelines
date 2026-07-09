@@ -1,6 +1,5 @@
 ---
 description: "Activate the Docusaurus Documentation Expert role. Use when working on designing, building, editing, or deploying the Docusaurus site — including content authoring, configuration, theming, React components, Vercel deployment, and troubleshooting."
-model: anthropic/claude-sonnet-4-5
 ---
 
 # Docusaurus Documentation Expert

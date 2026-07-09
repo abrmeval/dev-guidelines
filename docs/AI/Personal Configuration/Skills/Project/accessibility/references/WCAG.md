@@ -1,3 +1,8 @@
+---
+title: WCAG 2.2 Quick Reference
+sidebar_position: 2
+---
+
 # WCAG 2.2 Quick Reference
 
 ## Success criteria by level

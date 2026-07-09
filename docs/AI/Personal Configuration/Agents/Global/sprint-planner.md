@@ -1,4 +1,6 @@
 ---
+title: Sprint Planner
+sidebar_position: 3
 description: |
   Use this agent when the user asks to create, plan, or organize a sprint.
 

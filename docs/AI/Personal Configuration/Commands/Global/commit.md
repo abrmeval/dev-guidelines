@@ -1,4 +1,6 @@
 ---
+title: Commit Command
+sidebar_position: 1
 description: Stage all changes and create a conventional commit, then push to the current branch
 ---
 
