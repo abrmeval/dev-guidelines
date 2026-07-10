@@ -8,7 +8,7 @@ sidebar_position: 5
 
 ## AGENTS.md 
 AGENTS.md is a project-specific file that provides guidelines for AI agents interacting with the codebase. It should be placed in the root directory of the project.
-It is being loaded in every conversation with the agent, so it should be concise and focused on providing the necessary context and instructions for the agent to effectively interact with the project.
+It is loaded in every conversation with the agent, so it should be concise and focused on providing the necessary context and instructions for the agent to effectively interact with the project.
 
 Placed in the root directory, AGENTS.md should include:
 - A title (e.g., "Coding Agent Guidelines")
