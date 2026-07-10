@@ -33,8 +33,8 @@ An alternative option is adding the following in CLAUDE.md:
 The same happens with other AI agents from different providers.
 
 ### Skills
-Skills are in the `~/.agents` global directory. The skills there will be referenced in every AI provider global directory by using symbolic links.
-For example, in `~/.claude/skills` there will be a symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills will have a standard structure with compatible options only.
+Skills are in the `~/.agents` global directory. The skills are referenced in every AI provider global directory by using symbolic links.
+For example, in `~/.claude/skills` there is a symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills have a standard structure with compatible options only.
 
 Domain specific skills:
 - microsoft-code-reference
@@ -48,8 +48,14 @@ General dev skills:
 - no-mistakes
 
 ### Commands
+Commands are in `~/.agents` global directory. Commands are referenced by other AI providers in their global directory too.
+For example, with Claude, commands are in `~/.claude/commands`, but those files are shortcuts that point to `~/.agents/commands` files.
+
+- commit.d
+- pr.md 
 
 ### Agents/Subagents
+
 
 ## Project Configuration
 

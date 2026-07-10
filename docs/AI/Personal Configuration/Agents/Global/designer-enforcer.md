@@ -19,6 +19,7 @@ description: |
   - User asks 'does my new feature follow the project conventions?' → invoke this agent
   - After a refactor: 'check if my changes meet the architecture requirements'
 model: opencode-go/glm-5.2
+temperature: 0.1
 permission:
   read: allow
   glob: allow
@@ -70,13 +71,14 @@ Run the relevant checklist(s) below for each file.
 
 ### Naming Conventions (from NAMING_CONVENTIONS.md)
 
-- [ ] It follows naming conventions based on the stack and the definitions in this project
+- [ ] It follows naming conventions based on the stack and the definitions in this project if they exist, or common conventions defined by the open source community, trusted sources and official vendors
 - [ ] Code has clear names for variables, functions, methods, classes and other elements
 
 
 ### Code Quality Rules
 
 - [ ] It follows best practices and patterns defined in this project
+- [ ] It follows best practices from official and trusted sources
 - [ ] No unused variables or parameters
 - [ ] Nullable reference types respected — no suppression of nullable warnings without justification
 - [ ] No zero-tolerance policy bypass

@@ -22,6 +22,7 @@ description: |
   - User says 'Update the status of my sprint tasks to reflect current progress' → invoke this agent to update task statuses and provide progress summary
 model: opencode-go/qwen3.7-max
 variant: max
+temperature: 0.0
 permission:
   read: allow
   edit: allow

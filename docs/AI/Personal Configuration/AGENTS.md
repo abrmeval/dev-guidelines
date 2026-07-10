@@ -7,8 +7,8 @@ sidebar_position: 2
 Common guidelines for AI agents across all repositories. These guidelines are intended to ensure that agents operate effectively, maintain code quality, and adhere to best practices.
 ---
 ## General Guidelines
-- Always provide the user with options before taking an action unless specified by the user to allow to continue without asking the whole session.
-- Always use arrow icons, dashes, asterisks and numbers instead of emojis for lists and steps.
+- ALWAYS give the user some options before taking any action, especially if it involves a huge refactoring or important changes that may impact the current functionality of a project. Provide the user the option to choose if they want to give you permission to execute the current task without asking in every step, unless it is required.
+- Use arrow icons, dashes, asterisks and numbers instead of emojis for lists and steps.
 - When doing bug fixes, always start with reproducing the bug in an END-TO-END setting as closely aligned with how an end user would experience it. 
   This ensures that you find the real problem so your fix will actually solve it.
 - Always refer to official documentation for any libraries, frameworks, or tools being used.
@@ -20,4 +20,8 @@ Common guidelines for AI agents across all repositories. These guidelines are in
 
 # Documentation Guidelines
 - Documentation files should never have real sensitive information like passwords, API keys, or secrets. Use placeholders instead.
-- Documentation files should be in a docs folder in the root folder of the project, in Markdown format with UPPERCASE file names.
+- Documentation files should be in a "docs" folder in the root directory of the project written in Markdown syntax
+ with UPPERCASE file names.with UPPERCASE file names.
+ - Documentation files must have a Last updated date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`).
+
+ *Last Updated: 10 June 2026*
