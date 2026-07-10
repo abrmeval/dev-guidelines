@@ -22,6 +22,4 @@ Common guidelines for AI agents across all repositories. These guidelines are in
 - Documentation files should never have real sensitive information like passwords, API keys, or secrets. Use placeholders instead.
 - Documentation files should be in a "docs" folder in the root directory of the project written in Markdown syntax
  with UPPERCASE file names.with UPPERCASE file names.
- - Documentation files must have a Last updated date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`).
-
- *Last Updated: 10 June 2026*
+ - Documentation files must have a Last updated date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`)

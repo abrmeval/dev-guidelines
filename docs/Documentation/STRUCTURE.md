@@ -33,5 +33,11 @@ Documentation files should be placed in a `docs` folder in the root directory of
 - Clear and concise content that is well-organized and easy to navigate
 - Use of headings, subheadings, bullet points, and numbered lists to improve readability
 - Diagrams, screenshots, or other visual aids where appropriate to enhance understanding
-- Links to relevant resources or documentation for further reading
+- Links to relevant resources or documentation (external or internal - same project) for further reading
 - Last updated date at the bottom of the file (e.g., `*Last Updated: 17 Feb 2026*`)
+
+Exceptions
+------------
+1. Every new or changed file must include a References section if the content specified in the document does not cover all the topics intended. Meaning, it just covers the necessary for the project but it would be helpful for the user to explore more in case of interest.
+
+2. For AI context such as skills, commands, subagents and so on, it is not mandatory to follow the rules above. Those follow a different structure specified in official websites.

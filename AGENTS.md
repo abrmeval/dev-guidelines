@@ -128,7 +128,7 @@ All AI agents and automated tools must follow the mandates here unless explicitl
   - Triple-backtick for code blocks, proper language tag
   - Markdown tables for comparisons & naming standards
   - ASCII diagrams only, no external images
-  - End with `## References` and `*Last Updated: DD Mon YYYY*`
+  - End with `## References` (external or internal - same project) if applicable and `*Last Updated: DD Mon YYYY*`
   - File names: `UPPER_SNAKE_CASE.md`, no spaces/punctuation
 
 ---
@@ -141,7 +141,8 @@ All AI agents and automated tools must follow the mandates here unless explicitl
 - Follow the [AI skills and hooks](docs/Documentation/AI.md) registry for complex workflows.
 - Skills and subagents: use focused system prompts for specialized domains—see `docs/Documentation/AI.md` for structure.
 - Only add new files if not duplicating an existing doc (check folder first).
-- Every new or changed file must include a References section and last updated stamp.
+- Every new or changed file must include a References section if the content specified in the document does not cover all the topics intended. Meaning, it just covers the necessary for the project but it would be helpful for the user to explore more in case of interest.
+- Every  new or changed file must include a last updated stamp at the end. 
 
 ---
 

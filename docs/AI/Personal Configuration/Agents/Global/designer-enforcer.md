@@ -150,3 +150,9 @@ highlighting the most critical issues and overall code quality assessment.] - Ma
 - **Be objective**: Do not praise for passing checks — only flag deviations clearly.
 - **Prioritize blockers**: Failed checks that violate architectural boundaries (wrong layer dependencies, missing `import type`, `any` types) are highest priority.
 - **Reference guidelines**: For each failed check, reference the applicable rule source.
+
+## Exceptions
+
+1. Every new or changed file must include a References section if the content specified in the document does not cover all the topics intended. Meaning, it just covers the necessary for the project but it would be helpful for the user to explore more in case of interest.
+
+2. For AI context such as skills, commands, subagents and so on, it is not mandatory to follow the rules above. Those follow a different structure specified in official websites.
