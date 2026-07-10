@@ -3,7 +3,8 @@ title: Personal Setup
 description: Instructions for configuring your personal environment for AI agents
 sidebar_position: 1
 ---
-[!NOTE]
+
+> [!NOTE]
 > A symbolic link is not the same as a shortcut. Windows allows to create shortcuts, which are simple pointers to other files or directories.
 Symbolic links are basically advanced shortcuts. Create a symbolic link to an individual file or folder, and that link will appear to be the same as the file or folder to Windows — even though it's just a link pointing at the file or folder.
 Applications treat it as if the data exists exactly at that location.
