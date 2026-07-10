@@ -3,6 +3,10 @@ title: Personal Setup
 description: Instructions for configuring your personal environment for AI agents
 sidebar_position: 1
 ---
+[!NOTE]
+> A symbolic link is not the same as a shortcut. Windows allows to create shortcuts, which are simple pointers to other files or directories.
+Symbolic links are basically advanced shortcuts. Create a symbolic link to an individual file or folder, and that link will appear to be the same as the file or folder to Windows — even though it's just a link pointing at the file or folder.
+Applications treat it as if the data exists exactly at that location.
 
 # Personal Setup
 
@@ -24,7 +28,7 @@ Every AI provider adds its own configuration files and directory for their agent
 
 For example, for Claude Code, the global configuration is stored in `~/.claude/`.
 There will be a global CLAUDE.md file that will point to the global AGENTS.md file.
-There will be a symbolic link or shortcut renamed as CLAUDE.md that references AGENTS.md.
+There will be a symbolic link renamed as CLAUDE.md that references AGENTS.md.
 
 An alternative option is adding the following in CLAUDE.md:
 ```markdown
@@ -35,7 +39,7 @@ The same happens with other AI agents from different providers.
 ### Skills
 
 Skills are in the `~/.agents` global directory. The skills are referenced in every AI provider global directory by using symbolic links.
-For example, in `~/.claude/skills` there is a symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills have a standard structure with compatible options only.
+For example, in `~/.claude/skills` there is a symbolic link pointing to the skills in `~/.agents/skills`. Skills have a standard structure with compatible options only.
 
 Domain specific skills:
 - microsoft-code-reference
@@ -47,11 +51,12 @@ General dev skills:
 - chrome-devtools-axi
 - lavish
 - no-mistakes
+- skill-creator
 
 ### Commands
 
 Commands are in `~/.agents` global directory. Commands are referenced by other AI providers in their global directory too.
-For example, with Claude, commands are in `~/.claude/commands`, but those files are shortcuts that point to `~/.agents/commands` files.
+For example, with Claude, commands are in `~/.claude/commands`, but those files are symbolic links that point to `~/.agents/commands` files.
 To ensure compatibility, options avaiable across different providers are set.
 
 - commit.d
@@ -60,7 +65,7 @@ To ensure compatibility, options avaiable across different providers are set.
 ### Agents/Subagents
 
 Agents are in `~/.agents` global directory. Agents are referenced by other AI providers in their global directory too.
-For example, in Claude, agents are defined in `~/.claude/agents`, but those files are shortcuts that point to `~/.agents/agents` files.
+For example, in Claude, agents are defined in `~/.claude/agents`, but those files are symbolic links that point to `~/.agents/agents` files.
 To ensure compatibility, options avaiable across different providers are set.
 
 - designer-enforcer
@@ -75,19 +80,31 @@ The logic will be the same as for global configuration. All AI context will be i
 
 ### Skills
 Skills are in the `./agents` directory. Skills are referenced in every AI provider directory by using symbolic links.
-For example, in `./claude/skills` there are symbolic link (shortcuts) pointing to skills in `./agents/skills`. Skills have a standard structure with compatible options only.
+For example, in `./claude/skills` there are symbolic links pointing to skills in `./agents/skills`. Skills have a standard structure with compatible options only.
 
-.NET stack
+.NET
 
-Python stack
+- Pending
+
+Python
+
+- Pending
 
 JavaScript/TypeScript
 
-Node.js stack
+- Pending
+
+Node.js
+
+- Pending
 
 Vite
 
+- Pending
+
 React
+
+- Pending
 
 ## OPENCODE Global Configuration
 
