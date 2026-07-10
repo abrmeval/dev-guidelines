@@ -117,6 +117,7 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
 - `~/.opencode.json`: Global settings for the AI agents, including model preferences, tool 
 - .env: file containing secrets for the Azure MCP Server (AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET)
 ```json
+//"Never commit tokens/secrets; keep them in local-only secret stores/env files." 
 {
     "$schema": "https://opencode.ai/config.json",
     "mcp": {
@@ -181,7 +182,7 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
                 "-i",
                 "--rm",
                 "--env-file",
-                "C:\\Users\\abrah\\.config\\opencode\\.env",
+                "<drive>:\\Users\\<username>\\.config\\opencode\\.env",
                 "mcr.microsoft.com/azure-sdk/azure-mcp:latest"
             ],
             "enabled": true
