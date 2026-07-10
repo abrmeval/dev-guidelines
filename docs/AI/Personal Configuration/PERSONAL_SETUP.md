@@ -108,12 +108,12 @@ React
 
 ## OPENCODE Global Configuration
 
-For OpenCode, the global configuration is stored in `~/.opencode/.
+For OpenCode, the global configuration is stored in `~/.opencode/ `.
 configurations, and user-specific options.
 In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencode`.
-- skills: Global skills that can be used across all projects.
-- commands: Global commands that can be used across all projects.
-- agents: Global agents that can be used across all projects.
+- skills: Global skills that can be used across all projects (Symbolic links instead).
+- commands: Global commands that can be used across all projects (Symbolic links instead).
+- agents: Global agents that can be used across all projects (Symbolic links instead).
 - `~/.opencode.json`: Global settings for the AI agents, including model preferences, tool 
 - .env: file containing secrets for the Azure MCP Server (AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET)
 ```json
