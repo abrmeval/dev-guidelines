@@ -33,6 +33,7 @@ An alternative option is adding the following in CLAUDE.md:
 The same happens with other AI agents from different providers.
 
 ### Skills
+
 Skills are in the `~/.agents` global directory. The skills are referenced in every AI provider global directory by using symbolic links.
 For example, in `~/.claude/skills` there is a symbolic link (shortcuts) pointing to the skills in `~/.agents/skills`. Skills have a standard structure with compatible options only.
 
@@ -48,16 +49,45 @@ General dev skills:
 - no-mistakes
 
 ### Commands
+
 Commands are in `~/.agents` global directory. Commands are referenced by other AI providers in their global directory too.
 For example, with Claude, commands are in `~/.claude/commands`, but those files are shortcuts that point to `~/.agents/commands` files.
+To ensure compatibility, options avaiable across different providers are set.
 
 - commit.d
 - pr.md 
 
 ### Agents/Subagents
 
+Agents are in `~/.agents` global directory. Agents are referenced by other AI providers in their global directory too.
+For example, in Claude, agents are defined in `~/.claude/agents`, but those files are shortcuts that point to `~/.agents/agents` files.
+To ensure compatibility, options avaiable across different providers are set.
+
+- designer-enforcer
+- sprint-executor
+- sprint-planner
+
 
 ## Project Configuration
+
+In every project, there will be specific context, defintions, documentation, skills, commands and agents/subgagents that will help with the development to release of projects.
+The logic will be the same as for global configuration. All AI context will be in a  `./agents ` folder and those files will be referneced in every AI provider folder as symbolic links to avoid repetition and ehance maintainability.
+
+### Skills
+Skills are in the `./agents` directory. Skills are referenced in every AI provider directory by using symbolic links.
+For example, in `./claude/skills` there are symbolic link (shortcuts) pointing to skills in `./agents/skills`. Skills have a standard structure with compatible options only.
+
+.NET stack
+
+Python stack
+
+JavaScript/TypeScript
+
+Node.js stack
+
+Vite
+
+React
 
 ## OPENCODE Global Configuration
 
