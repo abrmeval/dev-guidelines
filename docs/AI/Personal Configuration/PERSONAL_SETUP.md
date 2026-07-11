@@ -49,11 +49,15 @@ Domain specific skills:
 
 General dev skills:
 - mcp-analizer
+
+Tools:
 - chrome-devtools-axi: Wraps chrome-devtools-mcp with an AXI-compliant CLI.
 - lavish: A skill that helps agents turn rich HTML artifacts into collaborative human review surfaces.
 - no-mistakes: A local gate that validates your code changes through a pipeline before they reach
 the configured push target.
-- skill-creator: Anthropic's skill to create skills
+- gnhf: An agent orchestrator, it repeatedly calls another coding agent until a natural-language stop condition is met. This skill teaches the host agent to prepare one durable run and, in Companion mode, steer or review it.
+- treehouse: Helps you manage a pool of reusable, isolated worktrees so each of your agents gets its own environment instantly — no cloning, no conflicts, no coordination overhead.
+- skill-creator: Anthropic's tool to create skills
 
 ### Commands
 
