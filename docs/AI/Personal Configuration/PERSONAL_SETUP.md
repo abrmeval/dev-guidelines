@@ -49,10 +49,11 @@ Domain specific skills:
 
 General dev skills:
 - mcp-analizer
-- chrome-devtools-axi
-- lavish
-- no-mistakes
-- skill-creator
+- chrome-devtools-axi: Wraps chrome-devtools-mcp with an AXI-compliant CLI.
+- lavish: A skill that helps agents turn rich HTML artifacts into collaborative human review surfaces.
+- no-mistakes: A local gate that validates your code changes through a pipeline before they reach
+the configured push target.
+- skill-creator: Anthropic's skill to create skills
 
 ### Commands
 
