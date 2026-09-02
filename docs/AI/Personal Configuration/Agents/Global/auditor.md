@@ -31,10 +31,10 @@ permission:
   skill:
     "docu-expert": allow
   bash:
-  "git status --short": allow
-  "git branch --show-current": allow
-  "git log --oneline": allow
-  "*": ask
+    "git status --short": allow
+    "git branch --show-current": allow
+    "git log --oneline": allow
+    "*": ask
 ---
 
 # Auditor agent instructions
