@@ -231,5 +231,6 @@ Before delivering any documentation, verify:
 7. Last updated date at the bottom.
 
 ---
+When a project defines its own conventions, the project's conventions take precedence.
 
-These standards are maintained in the dev-guidelines repository (`docs/Documentation/`). When a project defines its own conventions, the project's conventions take precedence.
+Source of truth for these guidelines: [dev-guidelines](https://project-o16o8.vercel.app)
