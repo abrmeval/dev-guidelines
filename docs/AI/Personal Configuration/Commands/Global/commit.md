@@ -5,18 +5,15 @@ description: Stage all changes and create a conventional commit, then push to th
 ---
 
 ## Context
-
 - Current git status: !`git status`
 - Current git diff (staged and unstaged changes): !`git diff HEAD`
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -10`
 
 ## Your task
-
 Based on the above changes, create a single git commit and then push to the current remote branch.
 
 ## Commit Message Guidelines
-
 - First line: Short, concise, technical summary of the change (50 chars or less)
 - Leave a blank line after the first line
 - Add detailed bullet points explaining the work done (3 lines maximum)
