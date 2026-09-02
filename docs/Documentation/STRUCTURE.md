@@ -24,7 +24,7 @@ The file MUST include:
 - Cloud resources used (if applicable) -> Reference to the CLOUD_RESOURCES.md file for more detailed documentation
 - Troubleshooting tips (if applicable)
 - Reference to the docs folder for more detailed information (if applicable)
-- Links to relevant documentation or resources
+- Links to relevant documentation or resources not covered fully in the project documentation
 - Last updated date at the bottom of the file (e.g., `*Last Updated: 17 Feb 2026*`)
 
 ## Documentation files
@@ -187,7 +187,7 @@ This project provisions and depends on several Azure resources (App Service, Azu
 
 Further documentation — including API contracts, sequence diagrams, and deployment runbooks — is available in the [`docs/`](./docs) folder.
 
-## Related Resources
+## Resources for Further Reading
 
 - [ASP.NET Core Documentation](https://learn.microsoft.com/aspnet/core)
 - [Entity Framework Core Documentation](https://learn.microsoft.com/ef/core)
