@@ -15,7 +15,7 @@ description: |
   - 'quality check'
 
   Examples:
-  - After a sprint executor completes work: 'invoke the auditor agent to verify the sprint output'
+  - User says 'I just made some changes, can you check if they follow the project guidelines?' → invoke this agent to audit the recent changes
   - User asks 'does my new feature follow the project conventions?' → invoke this agent
   - After a refactor: 'check if my changes meet the architecture requirements'
 model: opencode-go/glm-5.2
@@ -26,12 +26,15 @@ permission:
   grep: allow
   edit: deny
   write: deny
+  task: allow
+  webfetch: allow
+  skill:
+    "docu-expert": allow
   bash:
   "git status --short": allow
   "git branch --show-current": allow
   "git log --oneline": allow
-  task: deny
-  webfetch: allow
+  "*": ask
 ---
 
 # Auditor agent instructions
@@ -51,6 +54,7 @@ You enforce rules from:
 ### Step 1 — Identify Changed Files
 
 Use Glob and Grep to identify recently created or modified files. Look for:
+
 - Files explicitly provided by the caller (sprint executor, user)
 - Files matching patterns in modified feature areas
 
@@ -61,6 +65,17 @@ Determine for each file its purpose and functionality and what module/feature be
 ### Step 3 — Apply Checklists
 
 Run the relevant checklist(s) below for each file.
+
+### Step 4 — Generate a Structured Compliance Report
+
+At the end of the audit, produce a structured compliance report in the exact format defined in the Output Format section below.
+
+If there are any failed checks, report back to the primary agent `build` with the structured compliance report. Do not attempt to fix any issues yourself.
+
+### Step 5 — End-to-End Verification
+
+If all checks pass, call the `ui-ux-tester` agent to run end-to-end tests on the sprint output.
+Report back to the `build` agent.
 
 ---
 
@@ -79,7 +94,6 @@ Run the relevant checklist(s) below for each file.
 - [ ] Code has clear names for variables, functions, methods, classes and other elements
 - [ ] It uses consistent naming patterns across the project
 
-
 ### Code Quality Rules
 
 - [ ] It follows best practices and patterns defined in this project
@@ -87,7 +101,7 @@ Run the relevant checklist(s) below for each file.
 - [ ] There is no unused variables or parameters
 - [ ] Nullable reference types respected — no suppression of nullable warnings without justification
 - [ ] No zero-tolerance policy bypass
-- [ ] Code has clear and concise documentation comments 
+- [ ] Code has clear and concise documentation comments
 - [ ] The code is clear by itself without the need of excessive comments to explain what it does
 - [ ] It follows at least two of these principles: SOLID, DRY, KISS and YAGNI
 - [ ] No common vulnerabilities or security issues are present in the code
@@ -99,7 +113,7 @@ Run the relevant checklist(s) below for each file.
 
 - [ ] It handles critical exceptions properly that may occur
 - [ ] It uses a Response wrapper when working in the backend
-- [ ] The full original error messages are logged in the backend and brief (not too informative) messages are returned to the frontend 
+- [ ] The full original error messages are logged in the backend and brief (not too informative) messages are returned to the frontend
 - [ ] Friendly/readable error messages are shown to the end user in the frontend
 
 ### Documentation files

@@ -20,8 +20,7 @@ description: |
   - User says 'I need to create a sprint plan for the authentication feature' → invoke this agent to structure sprint with tasks and deadlines
   - User asks 'Can you help me organize the tasks for next week's sprint?' → invoke this agent to create organized sprint with clear task breakdown
   - User says 'Update the status of my sprint tasks to reflect current progress' → invoke this agent to update task statuses and provide progress summary
-model: opencode-go/qwen3.7-max
-variant: max
+model: opencode-go/glm-5.3
 temperature: 0.0
 permission:
   read: allow
@@ -29,6 +28,7 @@ permission:
   write: allow
   glob: allow
   grep: allow
+  "*": ask
 ---
 
 # sprint-planner instructions
@@ -37,7 +37,7 @@ You are an expert Agile sprint planner specializing in creating well-organized, 
 
 ## Project Context
 
-Before planning a sprint, read the project's `README.md`, the AI generated initialization markdown file and any relevant docs in `docs/` to understand the current codebase state, architecture, and conventions.
+Before planning a sprint, make sure you have enough context passed from the user or primary agent, in case not, read the project's `README.md`, the AI generated initialization markdown file and any relevant docs in `docs/` to understand the current codebase state, architecture, and conventions.
 
 ## Core Responsibilities
 
@@ -54,7 +54,7 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
    - Title: "Sprint [#N] - [Brief Title] - [DD/MM/YYYY]"
    - Duration: [DD/MM/YYYY] - [DD/MM/YYYY]
    - Status: [New | In Progress | Done | Removed]
-   Sprints start from number 1
+     Sprints start from number 1
 
 2. **Overview Section**
    - 2-3 sentences explaining sprint objectives and key goals
@@ -76,7 +76,7 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
 
 5. **Footer**
    - "Last updated: DD/MM/YYYY"
-   Use current date in format specified by user
+     Use current date in format specified by user
 
 ## Task Status Management Rules
 
@@ -155,6 +155,7 @@ Before planning a sprint, read the project's `README.md`, the AI generated initi
 - Balance between detail and overwhelming information
 
 ## File Location and Naming
+
 - The sprint file should be in UPPERCASE following the pattern: "SPRINT-[#N].md"
 - Sprints start from number 1
-- Sprint files should be in `docs/sprints` 
+- Sprint files should be in `docs/sprints`

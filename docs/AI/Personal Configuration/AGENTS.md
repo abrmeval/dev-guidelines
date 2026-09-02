@@ -17,9 +17,9 @@ Common guidelines for AI agents across all repositories. These guidelines are in
 - Apply that same high standard to engineering excellence: lint, test failures and test flakiness. 
   If you see one, even if it is not caused by what you are working on right now, still get it fixed.
 - When writing commit messages, follow Conventional Commits Specification.
+- When writing code, follow DRY and KISS principles. Avoid over-engineering and unnecessary abstractions until they are truly needed.
 
 # Documentation Guidelines
-- Documentation files should never have real sensitive information like passwords, API keys, or secrets. Use placeholders instead.
-- Documentation files should be in a "docs" folder in the root directory of the project written in Markdown syntax
- with UPPERCASE file names.with UPPERCASE file names.
- - Documentation files must have a Last updated date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`)
+- Documents should never have real sensitive information like passwords, API keys, or secrets. Use placeholders instead.
+- Documents must be in a "docs" folder in the root directory of the project written in Markdown syntax with UPPERCASE file names.
+- Documents must have a "Last updated" date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`).
