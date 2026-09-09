@@ -1,17 +1,21 @@
 ---
 sidebar_position: 1
 slug: /
+title: Introduction
+description: Personal developer guidelines hub — conventions, patterns, and standards for .NET, Node.js, React, Vue, Git, testing, and AI agents.
 ---
 
 # Dev Guidelines
 
-A personal developer guidelines repository containing conventions, patterns, naming standards, and architectural decisions. This repository serves as the **single source of truth** for how code should be written, structured, and organized — for both **human developers** and **AI coding agents**.
+A personal developer guidelines hub containing conventions, patterns, naming standards, and architectural decisions. This repository serves as the **single source of truth** for how code should be written, structured, and organized.
 
-> Any AI agent (GitHub Copilot, Cursor, etc.) working in projects associated with these guidelines **must** read and follow the conventions defined here before generating or modifying code.
+> Any AI agent (GitHub Copilot, Cursor, opencode, etc.) working in projects associated with these guidelines **must** read and follow the conventions defined here before generating or modifying code.
 
 ---
 
-## Purpose
+## Overview
+
+Guidelines are organized by **technology domain**. Each folder holds focused Markdown files for naming conventions, project structure, architectural decisions, and tooling choices. The same files are rendered as the public documentation site — no `/docs/` URL prefix (`routeBasePath: '/'`).
 
 This repository exists to:
 
@@ -24,25 +28,12 @@ This repository exists to:
 
 ## How to Use This Repository
 
-### As a Developer
-
-1. Before starting a new project, read the relevant section for your stack (e.g., `Frontend/React/` for a React app)
-2. Follow naming conventions from the matching `NAMING_CONVENTIONS.md`
-3. Follow the project structure from the matching `PROJECT_STRUCTURE.md`
-4. Follow Git conventions from `Git/Commit.md` and `Git/PR.md`
-5. Follow documentation requirements from `Documentation/REQUIRED_DOCS.md`
-
-### As an AI Agent
-
-When working on any project associated with this guidelines repository:
-
-1. **Read the applicable guideline files** for the technology being used before generating any code
-2. **Naming:** Follow the `NAMING_CONVENTIONS.md` for the relevant language/framework
-3. **Structure:** Follow the `PROJECT_STRUCTURE.md` for the relevant framework
-4. **Architecture:** Apply the pattern defined in `.NET/` for the project type
-5. **Git:** Use commit message format from `Git/Commit.md`
-6. **Documentation:** Ensure all required docs from `Documentation/REQUIRED_DOCS.md` exist
-7. **Ask before deviating** — if a situation is not covered, ask the developer rather than assuming
+1. Before starting a new project, read the relevant section for your stack (e.g. `docs/Frontend/React/` for a React app, `docs/DotNET/VERTICALSLICE.md` for a .NET API).
+2. Follow naming conventions from the matching `NAMING_CONVENTIONS.md`.
+3. Follow the project structure from the matching `PROJECT_STRUCTURE.md`.
+4. Follow Git conventions from `docs/Git/Commit.md` and `docs/Git/PR.md`.
+5. Follow documentation requirements from `docs/Documentation/REQUIRED_DOCS.md`.
+6. AI agents working **in this repo** should read `AGENTS.md` first for repo-specific rules.
 
 ---
 
@@ -52,11 +43,13 @@ When working on any project associated with this guidelines repository:
 |---|---|
 | Backend | C# / .NET, Node.js |
 | Frontend | React (Vite + Bun), Vue 3 (Vite + Bun), Vanilla JavaScript |
-| Architecture | Monolithic (N-Tier), Modular Monolith, Microservices, Vertical Slice, MVC |
+| Architecture | Monolithic (N-Tier), Modular Monolith, Microservices, Vertical Slice, MVC, Clean Architecture |
 | Database | Relational (naming conventions) |
-| Cloud | Cloud resource naming |
-| Testing | Unit, Integration, End-to-End |
+| Cloud | Cloud resource naming, Vercel deployment |
+| Testing | Unit, Integration, End-to-End, Front-end / Back-end tooling |
 | Git | Commits, Pull Requests |
+| AI | Agent standards, provider guides (Claude, Copilot, opencode), skills and commands |
+| Documentation | Structure, naming, required docs, tooling |
 
 ---
 
@@ -64,14 +57,26 @@ When working on any project associated with this guidelines repository:
 
 Use the sidebar to explore different sections:
 
-- **.NET** - Architecture patterns for .NET applications
+- **.NET Architecture** - Architecture patterns for .NET applications
 - **Backend** - Backend development conventions and patterns
-- **Cloud** - Cloud infrastructure naming conventions
-- **Database** - Database naming standards
-- **Documentation** - Documentation standards and requirements
 - **Frontend** - Frontend framework conventions (React, Vue, Vanilla JS)
+- **Database** - Database naming standards
+- **Cloud** - Cloud resource naming conventions
+- **Cloud Infrastructure** - Deployment guides (Vercel)
 - **Git** - Git workflow and commit standards
+- **AI Providers** - Agent standards and provider guides (Claude, Copilot, opencode)
+- **AI Personal Configuration** - Personal agents, skills, and commands reference
+- **Documentation** - Documentation standards and requirements
 - **Testing** - Testing tools and best practices
+
+---
+
+## References
+
+- [How to use — README](https://github.com/abrmeval/dev-guidelines#how-to-use-this-repository)
+- [Required docs per project](./Documentation/REQUIRED_DOCS.md)
+- [Git commit conventions](./Git/Commit.md)
+
 ---
 
 *Last Updated: 09 Sep 2026*

@@ -1,10 +1,10 @@
 ---
-title: Commit Command
+title: Init Context Command
 sidebar_position: 3
 description: Create or update `AGENTS.md` for this repository
 ---
 
-# Context
+## Context
 
 The goal is a compact instruction file that helps future AI sessions avoid mistakes and ramp up quickly. Every line should answer: "Would an agent likely miss this without help?" If not, leave it out.
 
@@ -85,6 +85,7 @@ Keep the `AGENTS.md` up to 300 lines, if more context added, split it into Markd
 - Key dependencies: a list with core dependencies used in the current project
 - Documentation: Add a flat map of documentation files in the current project with short descriptions to read them only when necessary.
 
-# Important note
+## Important notes
 
-Keep every section short with core knowledge and split the context into different task-specific files, list the files to read them when relevant.
+- Keep every section short with core knowledge and split the context into different task-specific files if necessary. 
+- List all relevant Markdown files to read them for a deeper understanding when relevant.
