@@ -1,172 +1,176 @@
 # Coding Agent Guidelines
 
-This document provides essential rules, conventions, and command recipes for all agentic coding tools and AI agents working in this codebase. Follow these standards to ensure contribution consistency across frontend, backend, and documentation domains.
+Essential rules for AI agents working in this **Docusaurus documentation site**.
+This repo contains cross-project developer guidelines — no application code.
 
 ---
 
-## Purpose
+## Project Overview
 
-This repository is a **developer guidelines hub**, containing cross-project
-coding conventions, patterns, and architectural practices for C#, .NET, Node.js, React, Vue, and more.
-All AI agents and automated tools must follow the mandates here unless explicitly instructed otherwise.
+A personal developer guidelines hub built with Docusaurus v3. Contains conventions, patterns, and architectural standards for C#/.NET, Node.js, React, Vue, and more. All content lives in `docs/` as Markdown files.
 
----
-
-## Build / Lint / Test Commands
-
-### Application Build (Docusaurus)
-
-- Local dev server:   `bun run start`
-- Production build:   `bun run build`
-- Deploy:            `bun run deploy`
-
-### Linting & Typecheck
-- TypeScript types:   `bun run typecheck`
-
-### Testing
-- No direct app test scripts for this documentation-only repo.
-- If you are in a downstream .NET code repo, use:
-    - List tests:    `dotnet test --list-tests`
-    - Run all tests: `dotnet test`
-    - Run single test: `dotnet test --filter FullyQualifiedName~TestMethodName`
-    - Example: `dotnet test --filter Name~LoginReturns200`
-- If in a JS/Vite/Bun repo, standard commands
-    - All tests:      `bun run test`
-    - Single test:    `bun run test -- <path-to-file>`, e.g., `bun run test -- src/features/auth/useAuth.test.ts`
-    - Check project scripts in `package.json`.
-
-### Git Workflow
-- Always use feature branches—never commit directly to `main`.
-- Use [Conventional Commits](https://www.conventionalcommits.org/) for messages (refer to Git section).
+**Tech Stack**
+- Docusaurus 3.5+ (React 19, TypeScript 5.6)
+- Node >= 20 (repo also uses Bun locally)
+- Deployed to Vercel via GitHub Actions
 
 ---
 
-## Code Style Guidelines
+## Commands
 
-**All contributions must adhere to these conventions:**
+```bash
+# Dev server
+bun run start
 
-### Imports & Structure
-- Use ES module imports (`import ... from '...'`).
-- Sort imports: libraries first, then relative, then styles/types.
-- Group by domain/feature—never import across unrelated modules.
+# Production build
+bun run build
 
-### File & Folder Naming
-- Project root: `kebab-case` (e.g. `my-app`)
-- Features/folders: `kebab-case` (e.g., `user-profile`, `auth`)
-- React/Vue component files: `PascalCase` (e.g., `UserCard.tsx`, `LoginView.vue`)
-- Hooks/Composables: camelCase prefixed with `use` (e.g., `useAuth.ts`)
-- Service, store, helper, utils: `camelCase` with domain suffix (e.g., `userService.ts`, `authStore.ts`)
-- Types/interfaces: `camelCase.types.ts` (e.g., `user.types.ts`)
-- Test files: Match file under test + `.test.ts` (`MyComp.test.tsx`)
+# TypeScript check
+bun run typecheck
 
-### Variables, Functions & Types
-- Variables, functions: `camelCase` (e.g., `handleClick`, `isLoading`)
-- Constants: `UPPER_SNAKE_CASE`
-- Boolean vars: Prefix with `is`, `has`, `can` (e.g. `isLoading`, `hasPermission`)
-- Types/interfaces: Use `PascalCase`, avoid `I` prefix (e.g., `User`, NOT `IUser`)
-- Generic types: Use `T`, `TData`, `TResult` as appropriate
+# Lint (ESLint + TS + React)
+bun run lint
 
-### Components/Pages
-- Component: `PascalCase`, one per file
-- Multi-component modules: Use folders (see below)
-- Props interface: `PascalCaseProps` (e.g., `UserCardProps`)
-- Page files: Suffix with `Page`/`View` (e.g., `LoginPage.tsx`, `DashboardView.vue`)
-- Event handlers: Prefix with `handle` (e.g., `handleSubmit`)
-- Callback props: Prefix with `on` (e.g., `onSubmit`)
+# Full verification (lint + typecheck)
+bun run check
 
-### Services/API (React & Vue)
-- Service files: `camelCaseService.ts`
-- Functions: verb + noun (`fetchUser`, `updateProfile`)
-- API base clients are centralized (e.g., `apiClient.ts`)
+# Deploy (local)
+bun run deploy
+```
 
-### Utils & Helpers
-- Only write pure (stateless/side-effect free) utilities.
-- Utilities: verb + noun (`formatDate`, `debounce`)
-
-### Configuration
-- Env vars prefixed with `VITE_` for Vite/Bun projects; access via `import.meta.env.VITE_*`
-- `.env.local`/`.env.production`/etc. for overrides
-- Vite config: `vite.config.ts`
-
-### Secrets & Sensitive Data
-- **Never include real secrets, credentials, API keys, tokens, passwords, connection strings, or any sensitive data in documentation or source files.**
-- All examples and code snippets must use clearly labelled `<placeholder>` values instead. Examples:
-  ```env
-  DATABASE_URL=<your-database-url>
-  API_KEY=<your-api-key>
-  JWT_SECRET=<your-jwt-secret>
-  ```
-- Real values belong only in `.env.local`, `.env.production`, or a secrets manager — all of which must be gitignored.
-- If a secret is accidentally committed, treat it as compromised immediately and rotate it.
-
-### Error Handling
-- Always handle possible error branches (try/catch for async, fallback UI for React, error boundaries)
-- Never suppress errors silently; log or re-throw as appropriate
+> CI runs `npm ci && npm run lint && npm run build` on every push to `main`, then deploys to Vercel.
 
 ---
 
-## Git Commit / PR Guidelines
+## Project Structure
 
-- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) strictly: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
-- Commit message:
-  - First line ≤ 50 chars (summary)
-  - Blank line
-  - Up to 3 bullet points explaining what & why—never who
-  - NO AI/Claude/Copilot attribution or co-authorship in messages
-- PR title: Prefix with `PR:` and, if relevant, area in `[Area]` (e.g. `PR: [Testing] Improve coverage`)
-- Use `gh pr create --title "PR: ..." --body "..."`
-- See `docs/Git/Commit.md` and `docs/Git/PR.md` for full examples
+```
+dev-guidelines/
+├── docs/                           # All guideline content
+│   ├── intro.md                    # Homepage content
+│   ├── AI/                         # AI provider configs & personal setup
+│   ├── Backend/                    # C# / Node.js conventions
+│   ├── Cloud/                      # Cloud resource naming
+│   ├── Cloud Infrastructure/       # Deployment guides
+│   ├── Database/                   # DB naming standards
+│   ├── Documentation/              # Doc standards and structure
+│   ├── DotNET/                     # .NET architecture patterns
+│   ├── Frontend/                   # React, Vue, Vanilla JS
+│   ├── Git/                        # Commit & PR conventions
+│   └── Testing/                    # Testing tools by type
+├── src/css/custom.css              # Theme overrides
+├── docusaurus.config.ts            # Site config
+├── sidebars.ts                     # Sidebar navigation (manual)
+└── .github/workflows/              # CI/CD
+```
 
----
-
-## Documentation & Contribution Format
-
-- All `.md` docs must follow:
-  - Title on first line (`# ...`)
-  - Intro paragraph
-  - Use `##` and `###` headings, no level skipping
-  - Triple-backtick for code blocks, proper language tag
-  - Markdown tables for comparisons & naming standards
-  - ASCII diagrams only, no external images
-  - End with `## References` (external or internal - same project) if applicable and `*Last Updated: DD Mon YYYY*`
-  - File names: `UPPER_SNAKE_CASE.md`, no spaces/punctuation
-
----
-
-## AI Agent & Copilot-Specific Rules
-
-- AGENTS.md is always loaded in agentic environments—keep instructions precise, non-redundant.
-- For large/ambiguous changes: ask devs for clarification—never assume project scope.
-- AI/Claude/Copilot must not write attribution to commit/PR messages.
-- Follow the [AI skills and hooks](docs/Documentation/AI.md) registry for complex workflows.
-- Skills and subagents: use focused system prompts for specialized domains—see `docs/Documentation/AI.md` for structure.
-- Only add new files if not duplicating an existing doc (check folder first).
-- Every new or changed file must include a References section if the content specified in the document does not cover all the topics intended. Meaning, it just covers the necessary for the project but it would be helpful for the user to explore more in case of interest.
-- Every  new or changed file must include a last updated stamp at the end. 
+**Key config files**
+- `docusaurus.config.ts` — site metadata, navbar, footer, prism languages
+- `sidebars.ts` — manual sidebar tree; add new docs here or use `_category_.json` for autogenerated sections
+- `docs/` content uses `routeBasePath: '/'` — no `/docs/` prefix in URLs
 
 ---
 
-## Key References
+## Documentation Rules (Mandatory)
 
-| Topic      | File/Link                                            |
-|------------|-----------------------------------------------------|
-| C#/.NET    | docs/Backend/NAMING_CONVENTIONS.md                  |
-| React      | docs/Frontend/React/NAMING_CONVENTIONS.md           |
-| Vue 3      | docs/Frontend/Vue/NAMING_CONVENTIONS.md             |
-| Commit     | docs/Git/Commit.md                                  |
-| PR         | docs/Git/PR.md                                      |
-| Agent/AI   | docs/Documentation/AI.md                            |
-| Doc rules  | .github/copilot-instructions.md, docs/Documentation/STRUCTURE.md |
+All `.md` files in `docs/` must follow this format:
+
+1. **Frontmatter** first:
+   ```yaml
+   ---
+   title: Document Title
+   sidebar_position: 1
+   description: Short description
+   ---
+   ```
+
+2. **Title** on line 1 of body: `# Document Title`
+
+3. **Intro paragraph** — what the doc covers
+
+4. **Headings** — use `##` and `###`, no level skipping
+
+5. **Code blocks** — triple backticks with language tag (` ```csharp `, ` ```ts `, etc.)
+
+6. **Tables** — markdown tables for naming standards, comparisons
+
+7. **ASCII diagrams only** — no external images
+
+8. **End every file with**:
+   ```markdown
+   ## References
+   - [external or internal links]
+
+   *Last Updated: DD Mon YYYY*
+   ```
+
+9. **File names** — `UPPER_SNAKE_CASE.md`, no spaces or special characters
+
+10. **Never include real secrets** — use `<placeholder>` in all examples:
+    ```env
+    API_KEY=<your-api-key>
+    DATABASE_URL=<your-database-url>
+    ```
+
+> Exception: AI skill/command files under `docs/AI/Personal Configuration/` follow their own structure per provider docs.
 
 ---
 
-## References
-- See all referenced guideline files in `/docs/`
-- .github/copilot-instructions.md
-- docs/Documentation/AI.md
-- docs/Git/Commit.md, docs/Git/PR.md
-- docs/Frontend/React/NAMING_CONVENTIONS.md
-- docs/Frontend/Vue/NAMING_CONVENTIONS.md
-- docs/Documentation/STRUCTURE.md
+## Code Style (This Repo)
 
-*Last Updated: 08 May 2026*
+- ES module imports only
+- Config files (`docusaurus.config.ts`, `sidebars.ts`, `eslint.config.mts`) are Node.js scripts
+- React 17+ JSX transform — no `import React` needed
+- CSS custom properties in `src/css/custom.css` override Infima variables
+
+---
+
+## Git Workflow
+
+- Feature branches only — never commit to `main`
+- Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
+- Commit first line ≤ 50 chars, blank line, then ≤ 3 bullet points
+- No AI attribution in commits
+- PR title: `PR: [Area] Description` (max 150 chars)
+
+---
+
+## Boundaries
+
+| Do | Ask First | Never Do |
+|---|---|---|
+| Add new docs to existing sections | Create new top-level doc categories | Commit real secrets or credentials |
+| Update `sidebars.ts` when adding docs | Restructure existing doc architecture | Skip `## References` or last-updated stamp |
+| Use `<placeholder>` for all config examples | Change CI/CD workflows | Add duplicate docs — check folder first |
+| Run `bun run check` before committing |  |  |
+
+---
+
+## Key Dependencies
+
+- `@docusaurus/core` / `@docusaurus/preset-classic` — site framework
+- `@docusaurus/faster` — build performance
+- `prism-react-renderer` — code syntax highlighting
+- `typescript` / `typescript-eslint` / `eslint-plugin-react` — linting
+
+---
+
+## Documentation Map
+
+Read these when working on the corresponding topic:
+
+| Topic | File |
+|---|---|
+| Doc format rules | `docs/Documentation/STRUCTURE.md` |
+| Doc naming | `docs/Documentation/NAMING_CONVENTIONS.md` |
+| Required docs per project | `docs/Documentation/REQUIRED_DOCS.md` |
+| Git commits | `docs/Git/Commit.md` |
+| Git PRs | `docs/Git/PR.md` |
+| AI skills/commands | `docs/Documentation/AI.md` |
+| .NET architecture | `docs/DotNET/*.md` |
+| Frontend conventions | `docs/Frontend/*/*.md` |
+| Backend conventions | `docs/Backend/*.md` |
+
+---
+
+*Last Updated: 09 Sep 2026*
