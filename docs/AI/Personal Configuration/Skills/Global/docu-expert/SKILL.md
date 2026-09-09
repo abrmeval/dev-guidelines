@@ -6,6 +6,7 @@ description: Best practices for creating and reviewing project documentation fol
 ---
 ### Important Note:
 When writing sprints, the `sprint-planner` agent should be invoked and this skill should be skipped.
+Exclude AI Context (skills, commands, agents, hooks, so on).
 
 # Documentation Expert
 
