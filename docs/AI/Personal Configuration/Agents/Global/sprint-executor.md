@@ -2,20 +2,7 @@
 title: Sprint Executor
 sidebar_position: 2
 description: |
-  Use this agent when the user wants to execute a sprint or run sprint tasks.
-
-  Trigger phrases include:
-  - 'execute this sprint'
-  - 'run the sprint tasks'
-  - 'start sprint execution'
-  - 'begin working on the sprint'
-  - 'execute the sprint plan'
-  - 'work through this sprint'
-
-  Examples:
-  - User says 'I have a sprint plan from the sprint planner, please execute it' → invoke this agent to work through all sprint tasks
-  - User provides sprint definition with tasks and asks 'please execute these tasks' → invoke this agent to manage status transitions and complete the work
-  - After sprint planning is complete, user says 'now run the sprint' → invoke this agent to begin execution and track progress through task completion
+  Invoke this agent to execute a sprint or run sprint tasks. Trigger phrases include: execute this sprint, run the sprint tasks, start sprint execution, begin working on the sprint, execute the sprint plan, work through this sprint.
 model: opencode-go/gpt-5.6-luna
 reasoningEffort: max
 textVerbosity: low,
@@ -31,12 +18,12 @@ permission:
     "find *": allow
     "ls *": allow
     "dotnet build*": allow
-    "dotnet test*": allow
     "dotnet format*": allow
     "npm run lint": allow
     "npm run build": allow
     "uv build*": allow
     "uv init*": allow
+    "uv run*" : allow
     "git status --short": allow
     "*": ask
 ---
@@ -106,9 +93,9 @@ For each task in the sprint, follow this sequence:
    - List all completed tasks with their status
    - Key decisions made - Max 200 characters
 
-3. **Auditor Hand off**
-   - Hand off the  quality verification task to the `auditor` agent for quality verification
-   - Once the auditor completes the verification, hand off to the `build` agent and you finish the sprint execution process
+3. **Auditor Handoff**
+   - Hand off the quality verification task to the `auditor` agent for quality verification
+   - Once the auditor completes verification, hand off to the `build` agent to finish sprint execution
    - If the auditor reports back issues, hand off to the `build` primary agent for resolution
 
 ## Project-Specific Execution Rules

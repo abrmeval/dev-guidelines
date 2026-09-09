@@ -33,8 +33,6 @@ It should follow the following structure:
 - **/Scripts/json** - This folder contains JSON files that contain scripts with placeholders that can be replaced at runtime with actual values.
 - **/Configurations**: This folder contains custom configuration JSON files for the application.
 - **/docs** - This folder contains documentation files related to the application, such as API documentation, architecture diagrams, or any other relevant documentation that helps developers understand and work with the application effectively. The folder is outside the src folder to keep documentation separate from the source code and maintain a clear project structure.
+---
 
-
-
-
-
+*Last Updated: 09 Sep 2026*

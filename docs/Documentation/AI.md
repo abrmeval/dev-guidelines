@@ -181,3 +181,6 @@ This project is a web application built with React and Node.js. It allows users 
 - Follow the Airbnb JavaScript style guide
 </coding-conventions>
 ```
+---
+
+*Last Updated: 09 Sep 2026*

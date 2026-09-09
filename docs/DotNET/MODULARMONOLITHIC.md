@@ -171,3 +171,6 @@ Each module's extension method registers its own services, DbContext, and handle
 - [Milan Jovanović — Modular Monolith Architecture](https://www.milanjovanovic.tech/modular-monolith-architecture)
 - [Milan Jovanović — How to Structure a Modular Monolith in .NET (YouTube)](https://www.youtube.com/watch?v=z3piPJ7x4WU)
 - [NetArchTest — Architecture Test Library](https://github.com/BenMorris/NetArchTest)
+---
+
+*Last Updated: 09 Sep 2026*

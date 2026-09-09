@@ -14,8 +14,8 @@ This skill guides the process of analyzing the current project stack and suggest
 5. **Recommend MCP servers**: Based on the analysis, recommend MCP servers that would be beneficial for the project, taking into account the technologies in use, the project's architecture, and the development needs. Look for servers that align with the project's goals and can enhance productivity and efficiency.
 
 # Where to find MCP servers
-Go to `https://mcpmarket.com/search`, then append a query parameter to the URL with the technology or framework you want to search for. For example, if you want to find MCP servers for React, you would go to `https://mcpmarket.com/search?q=react`.
+Go to `https://mcpservers.org/search`, then append a query parameter to the URL with the technology or framework you want to search for. For example, if you want to find MCP servers for React, you would go to `https://mcpservers.org/search?q=react`.
 
 # Other resources
-- [MCP Servers](https://mcpservers.org/search)
+- [MCP Servers](https://mcpmarket.com/search)
 - [Microsoft MCP](https://github.com/microsoft/mcp)

@@ -210,3 +210,6 @@ features/
 - Mirror the same aliases in `tsconfig.app.json` under `compilerOptions.paths`
 - Use `bun install`, `bun run dev`, `bun run build`, `bun run test` as the standard commands
 - Store sensitive config in `.env.local` (git-ignored); only commit `.env` with safe defaults
+---
+
+*Last Updated: 09 Sep 2026*

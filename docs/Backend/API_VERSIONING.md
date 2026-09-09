@@ -6,12 +6,15 @@ sidebar_position: 3
 
 .NET APIs should follow the standard .NET naming conventions, which include:
 - API Versions: camelCase with a "v" prefix (e.g., `v1`, `v2`)
-- Should use semantic versioning for API versions (e.g., `v1.0`, `v2.1`)
-- API versioning should be implemented using URL path segments (e.g., `/api/v1/resource`)
+- Use semantic versioning for API versions (e.g., `v1.0`, `v2.1`)
+- Implement API versioning using URL path segments (e.g., `/api/v1/resource`)
  
 
 
 Node.js APIs should follow the standard Node.js naming conventions, which include:
 - API Versions: camelCase with a "v" prefix (e.g., `v1`, `v2`)
-- Should use semantic versioning for API versions (e.g., `v1.0`, `v2.1`)
-- API versioning should be implemented using URL path segments (e.g., `/api/v1/resource`)
+- Use semantic versioning for API versions (e.g., `v1.0`, `v2.1`)
+- Implement API versioning using URL path segments (e.g., `/api/v1/resource`)
+---
+
+*Last Updated: 09 Sep 2026*

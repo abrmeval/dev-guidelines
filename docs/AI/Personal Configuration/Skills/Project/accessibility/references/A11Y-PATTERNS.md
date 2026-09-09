@@ -236,3 +236,6 @@ Quick reference for the most common screen reader shortcuts.
 | Activate | VO + Space | Enter |
 | Headings list | VO + U, then arrows | H / Shift + H |
 | Links list | VO + U | K / Shift + K |
+---
+
+*Last Updated: 09 Sep 2026*

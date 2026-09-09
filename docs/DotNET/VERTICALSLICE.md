@@ -170,3 +170,6 @@ public class CreateOrderValidator : AbstractValidator<CreateOrderCommand>
 - [Jimmy Bogard — Vertical Slice Architecture](https://www.jimmybogard.com/vertical-slice-architecture/)
 - [Code Maze — Vertical Slice Architecture in ASP.NET Core](https://code-maze.com/vertical-slice-architecture-aspnet-core/)
 - [Vertical Slice Architecture .NET Template (GitHub)](https://github.com/nadirbad/VerticalSliceArchitecture)
+---
+
+*Last Updated: 09 Sep 2026*

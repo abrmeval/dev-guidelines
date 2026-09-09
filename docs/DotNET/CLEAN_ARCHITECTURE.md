@@ -441,3 +441,6 @@ public void Domain_Should_Not_HaveDependencyOn_Application()
 - [Steve Smith (Ardalis) — Clean Architecture Template (GitHub)](https://github.com/ardalis/cleanarchitecture)
 - [NetArchTest — Architecture Test Library](https://github.com/BenMorris/NetArchTest)
 - [abrmeval/nikola_admissions-service — Reference project](https://github.com/abrmeval/nikola_admissions-service/tree/main/src)
+---
+
+*Last Updated: 09 Sep 2026*
