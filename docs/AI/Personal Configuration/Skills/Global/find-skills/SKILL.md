@@ -66,18 +66,18 @@ For example:
 
 **Do not recommend a skill based solely on search results.** Always verify:
 
-1. **Install count** — Prefer skills with 1K+ installs. Be cautious with anything under 100.
-2. **Source reputation** — Official sources (`vercel-labs`, `anthropics`, `microsoft`) are more trustworthy than unknown authors.
-3. **GitHub stars** — Check the source repository. A skill from a repo with <100 stars should be treated with skepticism.
+- **Install count** — Prefer skills with 1K+ installs. Be cautious with anything under 100.
+- **Source reputation** — Official sources (`vercel-labs`, `anthropics`, `microsoft`) are more trustworthy than unknown authors.
+- **GitHub stars** — Check the source repository. A skill from a repo with <100 stars should be treated with skepticism.
 
 ### Step 5: Present Options to the User
 
 When you find relevant skills, present them to the user with:
 
-1. The skill name and what it does
-2. The install count and source
-3. The install command they can run
-4. A link to learn more at skills.sh
+- The skill name and what it does
+- The install count and source
+- The install command they can run
+- A link to learn more at skills.sh
 
 Example response:
 
@@ -118,17 +118,17 @@ When searching, consider these common categories:
 
 ## Tips for Effective Searches
 
-1. **Use specific keywords**: "react testing" is better than just "testing"
-2. **Try alternative terms**: If "deploy" doesn't work, try "deployment" or "ci-cd"
-3. **Check popular sources**: Many skills come from `vercel-labs/agent-skills` or `ComposioHQ/awesome-claude-skills`
+-  **Use specific keywords**: "react testing" is better than just "testing"
+- **Try alternative terms**: If "deploy" doesn't work, try "deployment" or "ci-cd"
+- **Check popular sources**: Many skills come from `vercel-labs/agent-skills` or `ComposioHQ/awesome-claude-skills`
 
 ## When No Skills Are Found
 
 If no relevant skills exist:
 
-1. Acknowledge that no existing skill was found
-2. Offer to help with the task directly using your general capabilities
-3. Suggest the user could create their own skill with `npx skills init`
+- Acknowledge that no existing skill was found
+- Offer to help with the task directly using your general capabilities
+- Suggest the user could create their own skill with `npx skills init`
 
 Example:
 
