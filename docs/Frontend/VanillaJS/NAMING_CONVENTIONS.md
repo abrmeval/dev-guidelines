@@ -20,4 +20,6 @@ Object.defineProperty(window, 'MY_GLOBAL_CONSTANT', { value: 'value', writable: 
 ```
 
 Versioning should use semantic versioning at the end of the file (e.g., `v1.0.0`) e.g. `v1.0.0` using a query parameter (e.g., `app.js?v=1.0.0`) e.g. `app.js?v=1.0.0`
+---
 
+*Last Updated: 09 Sep 2026*

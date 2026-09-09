@@ -459,3 +459,6 @@ public sealed record ApplicantCreatedEvent(
 - [MassTransit — Azure Service Bus](https://masstransit.io/documentation/transports/azure-service-bus)
 - [Dapper — GitHub](https://github.com/DapperLib/Dapper)
 - [NetArchTest — Architecture Test Library](https://github.com/BenMorris/NetArchTest)
+---
+
+*Last Updated: 09 Sep 2026*

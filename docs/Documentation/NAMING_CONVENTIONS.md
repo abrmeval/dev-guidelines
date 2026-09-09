@@ -8,3 +8,6 @@ sidebar_position: 3
 All documents should be named using clear, descriptive titles that reflect their content and purpose.
 - Use UPPER_SNAKE_CASE for document titles (e.g., `NAMING_CONVENTIONS.md`, `API_VERSIONING.md`).
 - Avoid using spaces or special characters in file names.
+---
+
+*Last Updated: 09 Sep 2026*

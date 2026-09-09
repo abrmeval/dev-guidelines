@@ -16,3 +16,6 @@ Foreign key columns should be named "`{ReferencedTableName}Id`", for example "Or
 Indexes should be named "`IX_{TableName}_{ColumnName}`", for example "IX_User_Email".
 Constraints should be named "`CK_{TableName}_{ConstraintName}`", for example "CK_User_EmailFormat" for a check constraint on the email column of the User table.
 Foreign key constraints should be named "`FK_{TableName}_{ReferencedTableName}`", for example "FK_Order_User" for a foreign key constraint between the Order and User tables.
+---
+
+*Last Updated: 09 Sep 2026*

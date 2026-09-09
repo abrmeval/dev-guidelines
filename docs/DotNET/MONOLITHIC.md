@@ -153,3 +153,6 @@ MyApp.Domain        → (nothing — no external dependencies)
 - [Microsoft — Common Web Application Architectures](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Microsoft — ASP.NET Core Architecture eBook](https://dotnet.microsoft.com/en-us/learn/architecture/aspnet-core)
 - [Microsoft Learn — N-tier Applications](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier)
+---
+
+*Last Updated: 09 Sep 2026*

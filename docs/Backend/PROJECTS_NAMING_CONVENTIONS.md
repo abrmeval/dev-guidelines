@@ -12,3 +12,6 @@ sidebar_position: 2
 Node.js Projects should follow the standard Node.js naming conventions, which include:
 - Projects: kebab-case (e.g., `project-name`) e.g. `my-project`
 - Modules: camelCase (e.g., `moduleName`) e.g. `myModule`
+---
+
+*Last Updated: 09 Sep 2026*

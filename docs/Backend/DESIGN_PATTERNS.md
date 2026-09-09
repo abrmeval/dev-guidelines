@@ -582,3 +582,6 @@ services.AddValidatorsFromAssembly(typeof(ApplicationAssembly).Assembly);
 - [Microsoft — CQRS Pattern (Azure Architecture Center)](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 - [Milan Jovanović — CQRS Pattern with MediatR](https://www.milanjovanovic.tech/blog/cqrs-pattern-with-mediatr)
 - [MediatR — GitHub](https://github.com/jbogard/MediatR)
+---
+
+*Last Updated: 09 Sep 2026*

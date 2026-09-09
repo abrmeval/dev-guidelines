@@ -72,3 +72,6 @@ Use the sidebar to explore different sections:
 - **Frontend** - Frontend framework conventions (React, Vue, Vanilla JS)
 - **Git** - Git workflow and commit standards
 - **Testing** - Testing tools and best practices
+---
+
+*Last Updated: 09 Sep 2026*

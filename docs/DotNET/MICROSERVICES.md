@@ -204,3 +204,6 @@ MySystem.sln
 - [Microsoft — Naming Guidelines](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines)
 - [MassTransit Documentation](https://masstransit.io/documentation)
 - [OpenTelemetry .NET](https://opentelemetry.io/docs/languages/dotnet/)
+---
+
+*Last Updated: 09 Sep 2026*

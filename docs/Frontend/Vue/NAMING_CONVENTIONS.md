@@ -170,3 +170,6 @@ Vue naming conventions should be followed for all code in this repository. This 
 - Scripts in `package.json`: kebab-case (e.g., `dev`, `build`, `test`, `lint`)
 - Use `bun run dev`, `bun run build`, `bun run test` as standard commands
 - Bun workspace packages (monorepo): kebab-case scoped names (e.g., `@my-app/ui`, `@my-app/utils`)
+---
+
+*Last Updated: 09 Sep 2026*
