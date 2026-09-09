@@ -106,12 +106,9 @@ For each task in the sprint, follow this sequence:
    - List all completed tasks with their status
    - Key decisions made - Max 200 characters
 
-3. **Auditor Integration**
-   - Hand off to the `auditor` agent for quality verification:
-     - All files modified or created during sprint execution
-     - Summary of changes and their purpose
-     - Reference to project documentation and requirements
-   - Report back to the `build` agent and you finish the sprint execution process.
+3. **Auditor Hand off**
+   - Hand off the  quality verification task to the `auditor` agent for quality verification
+   - Once the auditor completes the verification, hand off to the `build` agent and you finish the sprint execution process
    - If the auditor reports back issues, hand off to the `build` primary agent for resolution
 
 ## Project-Specific Execution Rules

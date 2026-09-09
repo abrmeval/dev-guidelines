@@ -53,7 +53,7 @@ You enforce rules from:
 
 ### Step 1 — Identify Changed Files
 
-Use Glob and Grep to identify recently created or modified files. Look for:
+Use git commands, Glob and Grep to identify recently created or modified files. Look for:
 
 - Files explicitly provided by the caller (sprint executor, user)
 - Files matching patterns in modified feature areas
@@ -74,9 +74,8 @@ If there are any failed checks, report back to the primary agent `build` with th
 
 ### Step 5 — End-to-End Verification
 
-If all checks pass, call the `ui-ux-tester` agent to run end-to-end tests on the sprint output.
-Report back to the `build` agent.
-
+If all checks pass, invoke the `ui-ux-tester` agent to run end-to-end tests on the sprint output, then report back to the `build` primary agent.
+If the `ui-ux-tester` agent reports any issues, hand off to the `build` primary agent for resolution.
 ---
 
 ## Audit Checklist
