@@ -4,7 +4,7 @@ A personal developer guidelines hub containing conventions, patterns, naming sta
 
 > Any AI agent (GitHub Copilot, Cursor, opencode, etc.) working in projects associated with these guidelines **must** read and follow the conventions defined here before generating or modifying code. See `AGENTS.md` for repo-specific agent instructions.
 
-Live site: `https://dev-guidelines-przk9sayy-abrmevals-projects.vercel.app`
+Live site: `https://project-o16o8.vercel.app`
 
 ![Docusaurus](https://img.shields.io/badge/Docusaurus-3.5-3ECC5F?logo=docusaurus&logoColor=white)
 ![Node](https://img.shields.io/badge/Node-%3E%3D20-339933?logo=node.js&logoColor=white)
