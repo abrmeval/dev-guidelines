@@ -1,5 +1,5 @@
 ---
-title: Commit Command
+title: Init Context Command
 sidebar_position: 3
 description: Create or update `AGENTS.md` for this repository
 ---
