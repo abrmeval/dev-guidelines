@@ -4,6 +4,7 @@ sidebar_position: 1
 description: |
   Invoke this agent to review/audit recently changed code against project guidelines and best practices. It reads, searches, and reports but never modifies files. Trigger phrases include: check my changes, enforce design guidelines, audit the code, verify best practices, review my code, code meets guidelines and best practices.
 model: opencode-go/glm-5.2
+mode: subagent
 temperature: 0.1
 permission:
   read: allow

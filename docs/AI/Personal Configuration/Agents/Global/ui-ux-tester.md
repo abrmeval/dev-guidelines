@@ -4,6 +4,7 @@ sidebar_position: 4
 description: | 
     An agent that runs end-to-end tests on a project and reports the results. Invoke this agent when you want to run end-to-end tests on a project and get a summary of the results. It can also be called to run specific test suites or test cases. Trigger phrases include: run end-to-end tests, check the user experience and interface, test the responsive design and usability, verify the UI functionality, check the app functionality from the end user perspective.
 model: opencode-go/glm-5.2
+mode: subagent
 permission:
     read: allow
     edit: allow

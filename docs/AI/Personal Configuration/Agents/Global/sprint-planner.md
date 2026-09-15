@@ -4,6 +4,7 @@ sidebar_position: 3
 description: |
   Invoke this agent to create, plan, or organize a sprint. Trigger phrases include: create a sprint plan, plan the next sprint, organize tasks for this sprint, set up a sprint, I need a sprint for..., update sprint status, work on a sprint planning, create a plan for the next sprint.
 model: opencode-go/glm-5.3
+mode: subagent
 temperature: 0.0
 permission:
   read: allow

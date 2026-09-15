@@ -4,8 +4,9 @@ sidebar_position: 2
 description: |
   Invoke this agent to execute a sprint or run sprint tasks. Trigger phrases include: execute this sprint, run the sprint tasks, start sprint execution, begin working on the sprint, execute the sprint plan, work through this sprint.
 model: opencode-go/gpt-5.6-luna
+mode: subagent
 reasoningEffort: max
-textVerbosity: low,
+textVerbosity: low
 temperature: 0.0
 permission:
   read: allow

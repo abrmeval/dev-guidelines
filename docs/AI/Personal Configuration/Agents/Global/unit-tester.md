@@ -4,6 +4,7 @@ sidebar_position: 5
 description: | 
     An agent that runs unit tests on a project and reports the results. Invoke this agent when you want to run unit tests on a project and get a summary of the results. Trigger phrases include: run the project's tests, execute the unit test suite, and test code methods or functions.
 model: opencode-go/gpt-5.6-luna
+mode: subagent
 reasoningEffort: max
 textVerbosity: low
 temperature: 0.0
