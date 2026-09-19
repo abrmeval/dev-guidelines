@@ -42,7 +42,7 @@ const sprintExtension = {
           sprint: {
             type: "string",
             description:
-              "Sprint identifier or sprint file path, e.g. 'sprint-4' or 'docs/ai/sprints/sprint-4.md'.",
+              "Sprint identifier or sprint file path, e.g. 'sprint-4' or 'docs/sprints/sprint-4.md'.",
           },
           maxFixRounds: {
             type: "integer",
@@ -183,7 +183,7 @@ const sprintExtension = {
           "plan",
           "sprint-planner",
           "Plan the sprint: {sprint}.\n\n" +
-            "Read the sprint file and docs/ai/sprints/SPRINTS-OVERVIEW.md first. " +
+            "Read the sprint file and docs/sprints/SPRINTS-OVERVIEW.md first. " +
             "Produce an execution plan: goals, ordered task breakdown, dependencies, " +
             "risks, and acceptance criteria per task.",
           { sprint }
@@ -201,7 +201,7 @@ const sprintExtension = {
           "Execute the sprint tasks for: {sprint}.\n\n" +
             "Read this project context first:\n" +
             "- AGENTS.md at the repository root\n" +
-            "- docs/ai/sprints/SPRINTS-OVERVIEW.md\n" +
+            "- docs/sprints/SPRINTS-OVERVIEW.md\n" +
             "- the sprint file: {sprint}\n" +
             "- any other docs/ files you need\n\n" +
             "The sprint plan:\n<plan>{plan}</plan>\n\n" +
@@ -268,7 +268,7 @@ const sprintExtension = {
           "ui-ux-tester",
           "Verify the UI/UX of the sprint deliverables for: {sprint}.\n\n" +
             "Executor summary:\n<summary>{summary}</summary>\n\n" +
-            "Check the UI against docs/ai/ui-design-rules.md: layout, spacing, " +
+            "Check the UI against docs/ui-design-rules.md: layout, spacing, " +
             "colors, component states, responsiveness. Be strict about " +
             "pixel-level correctness. Report each issue with its fix; return " +
             "markdown results when the UI is correct.",

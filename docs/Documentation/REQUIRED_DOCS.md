@@ -5,24 +5,23 @@ sidebar_position: 1
 ---
 # Required and Optional Documents
 
-The following documents are required and nice to have for every project to ensure consistency and clarity. 
-All documents EXCEPT for the main README and AI related documents (agents, skills, so on) should be placed in a `docs` folder in the root directory of the project, and should follow the naming conventions outlined in the NAMING_CONVENTIONS.md file.
+The following documents are required or optional for every project to ensure consistency and clarity. 
+All documents EXCEPT for the main README and AI related context (agents, skills, so on) should be placed in a `docs` folder in the root directory of the project, and should follow the naming conventions outlined in the NAMING_CONVENTIONS.md file.
 
 README files should be placed in the root directory of each project or subdirectory, and should follow the structure outlined in the STRUCTURE.md file.
-For AI context besides skills, commands, and so on, must be place in the `docs/AI` folder in the root directory of the project. Context like sprints, palnning and everything else the AI can use to understand the project.
 
 ## Documents List
 
 - README.md -> README file containing a general overview of the project. *[Required]*
 - CHANGELOG.md -> Log of changes of the project(s). *[Optional]*
 - CONTRIBUTING.md -> Contribution steps. *[Optional]*
-- /docs/ARCHITECTURE.md -> Architecture of the project(s) The overall architecture and specific architecture styles like Clean Architecture, Monolithic, Microservices, etc. *[Required]*
+- /docs/ARCHITECTURE.md -> Architecture of the project(s). The overall architecture and specific architecture styles like Clean Architecture, Monolithic, Microservices, etc. *[Required]*
 - /docs/DEPENDENCIES.md -> Dependencies of the project(s). *[Required]*
-- /docs/STACK.md -> Stack used for the project(s). [*Required]*
+- /docs/STACK.md -> Stack used for the project(s). *[Required]*
 - /docs/PROJECT_STRUCTURE.md -> Folder structure of the project(s). *[Required]*
 - /docs/EXTERNAL_SERVICES.md -> External services integrated with the project(s). *[Required]*
 - /docs/TEST/TESTING_TOOLS.md -> Tools used for testing the project(s). *[Optional]*
-- /docs/TEST/UNIT_TEST_CASES.md -> An concise unit test cases file of the project. *[Optional]*
+- /docs/TEST/UNIT_TEST_CASES.md -> A concise file of the project's unit test cases. *[Optional]*
 - /docs/TEST/TEST_PLAN.md -> A test plan based on functional and non-functional requirements. *[Optional]*
 - /docs/INFRASTRUCTURE/WORKFLOWS.md -> Documentation related to CI/CD workflows, deployment steps, structure of a workflow file, what is being deployed, etc. *[Required]*
 - /docs/INFRASTRUCTURE/CLOUD_RESOURCES.md -> Cloud resources in the project(s). *[Required]*

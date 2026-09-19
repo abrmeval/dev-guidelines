@@ -18,7 +18,6 @@ Apply the standards below whenever creating, updating, or reviewing project docu
 | Main README | Root of each project |
 | Subdirectory README | Root of the subdirectory (optional, for large modules) |
 | All project docs | `docs/` folder in the project root |
-| AI context (sprints, planning, project context) | `docs/AI/` folder |
 | Skills, commands, agents | `.claude/` or `.agents/` directories (follow each tool's official structure) |
 
 Keep the `docs/` folder separate from source code (`src/`) — separating code from documentation keeps the project structure easy to navigate.
@@ -226,12 +225,12 @@ When contributing to a Docusaurus site, remember that `_category_.json` files co
 ## Review Checklist
 
 Before delivering any documentation, verify:
-1. Correct location (root, `docs/`, `docs/AI/`) and UPPER_SNAKE_CASE file name.
+1. Correct location (root, `docs/`) and UPPER_SNAKE_CASE file name.
 2. Title, description, and intro paragraph present.
 3. No skipped heading levels; code fenced with language tags.
 4. Comparisons shown as tables; diagrams are ASCII.
 5. No real secrets — placeholders only.
-6. References section when related topics are not fully covered.
+6. Resources for Further Reading section when related topics are not fully covered.
 7. Last updated date at the bottom.
 
 ---

@@ -64,8 +64,8 @@ Before starting any task, you MUST read the relevant documentation. Every import
 | DevOps, CI/CD pipeline, GitHub Actions workflows, environment config                            | `docs/04-DevOps-Deployment.md`        |
 | Infrastructure, Neon PostgreSQL, deployment targets, environment variables                      | `docs/05-Infrastructure.md`           |
 | Local development setup, running backend and frontend, database migrations                      | `docs/06-Local-Development.md`        |
-| UI design system, component styling rules, Tailwind conventions, layout patterns                | `docs/ai/ui-design-rules.md`          |
-| Sprint planning, feature roadmap, sprint status                                                 | `docs/ai/sprints/SPRINTS-OVERVIEW.md` |
+| UI design system, component styling rules, Tailwind conventions, layout patterns                | `docs/ui-design-rules.md`          |
+| Sprint planning, feature roadmap, sprint status                                                 | `docs/sprints/SPRINTS-OVERVIEW.md` |
 | Coding standards, naming conventions, architecture rules, testing conventions                   | `AGENTS.md`                           |
 
 **Rule**: If a relevant doc file exists for the task at hand, read it before writing any code. Do not assume patterns — verify them. When in doubt about a pattern, read the existing code before inventing a new approach.
@@ -182,7 +182,7 @@ Follow these rules on every frontend file without exception:
 
 - Tailwind CSS exclusively — no inline `style` props, no CSS Modules unless already established.
 - Use `clsx` + `tailwind-merge` for conditional class composition.
-- Follow the design system in `docs/ai/ui-design-rules.md` for colors, spacing, and component conventions.
+- Follow the design system in `docs/ui-design-rules.md` for colors, spacing, and component conventions.
 
 **Naming**
 
@@ -212,7 +212,7 @@ Follow these rules on every frontend file without exception:
 
 <ui_design_rules>
 
-- Follow the UI design rules in `docs/ai/ui-design-rules.md` for all frontend development.
+- Follow the UI design rules in `docs/ui-design-rules.md` for all frontend development.
 - Use Tailwind CSS exclusively — no inline styles, no CSS modules unless already established.
 - Follow the component and layout conventions found in existing feature folders under `frontend/src/features/`.
 - Use Lucide React for all icons — no other icon libraries.
@@ -221,7 +221,7 @@ Follow these rules on every frontend file without exception:
 
 <documentation>
 - All architecture decisions and coding standards are documented in `AGENTS.md` at the repo root.
-- Sprint plans and execution history live in `docs/ai/sprints/`.
+- Sprint plans and execution history live in `docs/sprints/`.
 - For general dev guidelines and conventions, refer to https://project-o16o8.vercel.app.
 - If needed, search the web for best practices in React, ASP.NET, Clean Architecture, EF Core, etc. — but never guess without first checking the docs and existing code.
 </documentation>

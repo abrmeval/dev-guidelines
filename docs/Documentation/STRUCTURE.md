@@ -12,7 +12,7 @@ The file MUST include:
 - A title that relates to the project purpose or topic based on the business or technical context
 - A brief description of the project
 - Shields or badges (if applicable) to indicate build status, coverage and tech stack used
-- An Overview of the project structure and contents
+- An overview of the project structure and contents
 - Tech stack and tools used
 - Getting Started instructions (if applicable)
    - Prerequisites
@@ -43,7 +43,7 @@ Documentation files should be placed in a `docs` folder in the root directory of
 
 For AI context such as skills, commands, subagents and so on, it is not mandatory to follow the rules above. Those follow a different structure specified in official websites.
 
-# README Sample Structure
+## README Sample Structure
 
 # Order Management API
 
@@ -63,7 +63,7 @@ A RESTful API built with ASP.NET Core for managing customer orders, inventory sy
 
 ## Overview
 
-The `Order Management Api` exposes endpoints for creating and tracking orders, managing product inventory, and integrating with a third-party payment gateway. It follows a layered architecture (API → Application → Domain → Infrastructure) and is designed to be deployed as a containerized service in Azure.
+The `Order Management API` exposes endpoints for creating and tracking orders, managing product inventory, and integrating with a third-party payment gateway. It follows a layered architecture (API → Application → Domain → Infrastructure) and is designed to be deployed as a containerized service in Azure.
 
 This repository contains the API source code, unit and integration tests, database migrations, and infrastructure-as-code templates used to provision supporting Azure resources.
 
