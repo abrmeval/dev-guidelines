@@ -13,23 +13,25 @@ For AI context besides skills, commands, and so on, must be place in the `docs/A
 
 ## Documents List
 
-- README -> README file containing a general overview of the project. *[Required]*
-- CHANGELOG -> Log of changes of the project(s). *[Optional]*
-- CONTRIBUTING -> Contribution steps. *[Optional]*
-- /docs/ARCHITECTURE -> Architecture of the project(s) The overall architecture and specific architecture styles like Clean Architecture, Monolithic, Microservices, etc. *[Required]*
-- /docs/DEPENDENCIES -> Dependencies of the project(s). *[Required]*
-- /docs/STACK-> Stack used for the project(s). [*Required]*
-- /docs/PROJECT_STRUCTURE -> Folder structure of the project(s). *[Required]*
-- /docs/EXTERNAL_SERVICES -> External services integrated with the project(s). *[Required]*
-- /docs/TESTING_TOOLS -> Tools used for testing the project(s). *[Required]*
-- /docs/INFRASTRUCTURE/WORKFLOWS -> Documentation related to CI/CD workflows, deployment steps, structure of a workflow file, what is being deployed, etc. *[Required]*
-- /docs/INFRASTRUCTURE/CLOUD_RESOURCES -> Cloud resources in the project(s). *[Required]*
-- /docs/INFRASTRUCTURE/DEPLOYMENT -> Documentation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc. *[Required]*
+- README.md -> README file containing a general overview of the project. *[Required]*
+- CHANGELOG.md -> Log of changes of the project(s). *[Optional]*
+- CONTRIBUTING.md -> Contribution steps. *[Optional]*
+- /docs/ARCHITECTURE.md -> Architecture of the project(s) The overall architecture and specific architecture styles like Clean Architecture, Monolithic, Microservices, etc. *[Required]*
+- /docs/DEPENDENCIES.md -> Dependencies of the project(s). *[Required]*
+- /docs/STACK.md -> Stack used for the project(s). [*Required]*
+- /docs/PROJECT_STRUCTURE.md -> Folder structure of the project(s). *[Required]*
+- /docs/EXTERNAL_SERVICES.md -> External services integrated with the project(s). *[Required]*
+- /docs/TEST/TESTING_TOOLS.md -> Tools used for testing the project(s). *[Optional]*
+- /docs/TEST/UNIT_TEST_CASES.md -> An concise unit test cases file of the project. *[Optional]*
+- /docs/TEST/TEST_PLAN.md -> A test plan based on functional and non-functional requirements. *[Optional]*
+- /docs/INFRASTRUCTURE/WORKFLOWS.md -> Documentation related to CI/CD workflows, deployment steps, structure of a workflow file, what is being deployed, etc. *[Required]*
+- /docs/INFRASTRUCTURE/CLOUD_RESOURCES.md -> Cloud resources in the project(s). *[Required]*
+- /docs/INFRASTRUCTURE/DEPLOYMENT.md -> Documentation related to Deployment environments, purpose of every environment, rules, configuration needed in the different platforms, etc. *[Required]*
 - /docs/DEV/* -> Documentation related to functional/non-functional requirements and all documentation provided by the development team. A more technical documentation of the project(s). *[Optional]*
 - /docs/BUSINESS/* -> Documentation related to business rules and business related data. Documentation provided by the business team. *[Optional]*
 - /docs/NAMING_CONVENTIONS.md -> Naming conventions to follow in this project for files and code. *[Optional]*
-- /docs/DESIGN_PRINCIPLES -> SOLID, DRY, KISS, YAGNI, etc. *[Optional]*
-- /docs/DESIGN_PATTERNS -> Result Pattern, Options Pattern, Singleton, Value Object pattern, Repository pattern, etc. *[Optional]*
+- /docs/DESIGN_PRINCIPLES.md -> SOLID, DRY, KISS, YAGNI, etc. *[Optional]*
+- /docs/DESIGN_PATTERNS.md -> Result Pattern, Options Pattern, Singleton, Value Object pattern, Repository pattern, etc. *[Optional]*
 
 ## References
 

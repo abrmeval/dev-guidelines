@@ -10,10 +10,10 @@ Common guidelines for AI agents across all repositories. These guidelines are in
 - Split tasks when they are too long to solve and involve many steps. Create a TODO list for a better implementation.  
 - In case the current path followed to execute a task is not working, ALWAYS provide the user with alternatives for a different path to get the same result. AVOID taking action by yourself unless the user allow it. Inform and ask the user what permissions are need it to continue the task.
 - Use only arrow icons, dashes, asterisks and numbers and avoid emojis for rich rendering.
-- When doing bug fixes, always start with reproducing the bug in an END-TO-END setting as closely aligned with how an end user would experience it. 
+- When doing bug fixes, always start with reproducing the bug in an End-to-End setting as closely aligned with how an end user would experience it. 
   This ensures that you find the real problem so your fix will actually solve it.
 - Always refer to official documentation for any libraries, frameworks, or tools being used.
-- When end-to-end testing a product, be picky about the UI you see and be obsessed with pixel perfection.
+- When End-to-End testing a product, be picky about the UI you see and be obsessed with pixel perfection.
 - When making technical decisions, do not give much weight to development cost. Instead, prefer quality, simplicity, robustness, and maintainability.
 - Apply that same high standard to engineering excellence: lint, test failures and test flakiness. 
   If you see one, even if it is not caused by what you are working on right now, still get it fixed.

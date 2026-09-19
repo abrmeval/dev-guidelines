@@ -53,7 +53,9 @@ When scaffolding documentation for a project, create the required documents firs
 | STACK | docs/ | Required |
 | PROJECT_STRUCTURE | docs/ | Required |
 | EXTERNAL_SERVICES | docs/ | Required |
-| TESTING_TOOLS | docs/ | Required |
+| TESTING_TOOLS | docs/TEST/ | Optional |
+| UNIT_TEST_CASES | docs/TEST/ | Optional |
+| TEST_PLAN | docs/TEST/ | Optional |
 | WORKFLOWS | docs/INFRASTRUCTURE/ | Required |
 | CLOUD_RESOURCES | docs/INFRASTRUCTURE/ | Required |
 | DEPLOYMENT | docs/INFRASTRUCTURE/ | Required |
@@ -78,8 +80,8 @@ A README must include, in order:
 8. Project structure — files and directories with brief descriptions
 9. Cloud resources (when applicable) — link to CLOUD_RESOURCES.md
 10. Troubleshooting tips (when applicable)
-11. Reference to the docs folder for detailed information
-12. Links to relevant resources not covered fully in the project
+11. Additional Documentation that references the docs folder for detailed information
+12. Resources for Further Reading when not covered fully in the project
 13. Last updated date at the bottom
 
 Condensed example:
@@ -162,8 +164,8 @@ Every documentation file must include:
 - A brief description of the document's purpose
 - Well-organized content — headings, bullet points, and numbered lists
 - Visual aids where they help understanding (ASCII diagrams, tables)
-- Links to related documentation (internal or external)
-- A References section when the content does not cover all related topics
+- Additional Documentation that references the docs folder for detailed information (if applicable)
+- Resources for Further Reading when not covered fully in the project (if applicable)
 - Last updated date at the bottom
 
 Condensed example:
@@ -180,7 +182,7 @@ This document describes every deployment environment, its purpose, and the confi
 | Staging | Validation | Merge to main |
 | Production | Live traffic | Tagged release |
 
-## References
+## Additional Documentation
 
 - [CLOUD_RESOURCES.md](./CLOUD_RESOURCES.md)
 

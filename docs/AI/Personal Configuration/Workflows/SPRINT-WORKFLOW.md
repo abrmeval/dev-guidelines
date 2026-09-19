@@ -1,4 +1,7 @@
 # Sprint Workflow
+
+A PI agent workflow for software development from planning to testing.
+
 ```typescript
 // Import by relative path into pi's package install (~/.pi/agent/npm/node_modules).
 // This resolves to the same module instance pi already loaded, so the function
@@ -187,7 +190,7 @@ const sprintExtension = {
         );
 
         // =================================================================
-        // Phase 1 — Development (execution, audit)
+        // Phase 2 — Development (execution, audit)
         // =================================================================
         context.phase("development");
 
@@ -221,7 +224,7 @@ const sprintExtension = {
         );
 
         // =================================================================
-        // Phase 2 — Testing (unit, test plan, e2e, ui-ux)
+        // Phase 3 — Testing (unit, test plan, e2e, ui-ux)
         // =================================================================
         context.phase("testing");
 
