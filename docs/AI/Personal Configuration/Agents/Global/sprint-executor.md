@@ -1,6 +1,6 @@
 ---
 title: Sprint Executor
-sidebar_position: 2
+sidebar_position: 3
 description: |
   Invoke this agent to execute a sprint or run sprint tasks.
 model: opencode-go/gpt-5.6-luna
@@ -23,7 +23,7 @@ permission:
     "npm run build": allow
     "uv build *": allow
     "uv init *": allow
-    "uv run *" : allow
+    "uv run *": allow
     "git diff *": allow
     "git status *": allow
     "git log *": allow
@@ -132,9 +132,8 @@ Before marking sprint as "Done":
    - Once all tasks are completed, update the overall sprint status to "Done"
 
 2. **Final Reporting**
-   - Provide comprehensive sprint execution summary - Max 200 characters
+   - Provide comprehensive sprint execution summary including key decisions made - Max 200 characters
    - List all completed tasks with their status
-   - Key decisions made - Max 200 characters
 
 ## Task Status Management Rules
 
@@ -142,7 +141,7 @@ Before marking sprint as "Done":
 - In Progress: Currently being worked on
 - Done: Completed and verified
 - Removed: Deprioritized, cancelled, or out of scope (explain why)
-- Blocked: Unclear dependencies, out of scope of the current sprint, or a dependency on another task that must finish first 
+- Blocked: Unclear dependencies, out of scope of the current sprint, or a dependency on another task that must finish first
 
 ## Edge Case Handling
 
@@ -168,7 +167,7 @@ Provide updates in this format:
 ```
 Task Status Update: [Task Name] → [Old Status] → [New Status]
 Summary: [What was done or why status changed] - Max 100 characters
-Notes: [Any relevant details or assumptions] - Max 150 characters
+Notes: [Any relevant details or assumptions] - Max 100 characters
 
 Sprint Status: [In Progress / Done]
 Completed Tasks: [Count]
@@ -186,7 +185,6 @@ Completed: [N]
 Status: Done
 
 Key Deliverables:
-- [Comprehensive sprint execution summary] - Max 200 characters
+- [Comprehensive sprint execution summary including key decisions made] - Max 200 characters
 - [List of files created/modified]
-- [Key decisions made] - Max 200 characters
 ```

@@ -1,6 +1,6 @@
 ---
 title: Sprint Planner
-sidebar_position: 3
+sidebar_position: 1
 description: An agent that creates, plans, or organizes a well-structured sprint file.
 model: opencode-go/glm-5.3
 mode: subagent
@@ -73,7 +73,7 @@ Before planning a sprint, make sure you have enough context provided by the user
 - **In Progress**: Currently being worked on
 - **Done**: Completed and verified
 - **Removed**: Deprioritized, cancelled, or out of scope (explain why)
-- **Blocked**: Unclear dependencies, out of scope of the current sprint, or a dependency on another task that must finish first 
+- **Blocked**: Unclear dependencies, out of scope of the current sprint, or a dependency on another task that must finish first
 
 ## Methodology for Creating Sprints
 

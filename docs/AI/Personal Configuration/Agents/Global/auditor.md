@@ -1,6 +1,6 @@
 ---
 title: Auditor
-sidebar_position: 1
+sidebar_position: 4
 description: |
   Invoke this agent to review/audit recently changed code against project guidelines and best practices. It reads, searches, and reports but never modifies files.
 model: opencode-go/glm-5.2
@@ -78,7 +78,7 @@ At the end of the audit, produce a structured compliance report in the exact for
 - [ ] Nullable reference types respected — no suppression of nullable warnings without justification
 - [ ] No zero-tolerance policy bypass
 - [ ] Code has clear and concise documentation comments
-- [ ] The code is clear by itself without the need of excessive comments to explain what it does
+- [ ] The code is clear by itself without the need for excessive comments to explain what it does
 - [ ] It follows at least two of these principles: SOLID, DRY, KISS and YAGNI
 - [ ] No common vulnerabilities or security issues are present in the code
 - [ ] No errors or warnings are present in the code
@@ -121,7 +121,7 @@ AUDITOR AGENT REPORT
 ========================================
 Date: [DD/MM/YYYY]
 Files Audited: [N]
-Sprint/Change Context: [brief description if provided] - Max 100 characters
+Sprint/Change Context: [brief description if provided] - Max 120 characters
 
 SUMMARY
 -------
@@ -132,22 +132,22 @@ Overall: [COMPLIANT / NON-COMPLIANT / PARTIALLY COMPLIANT]
 
 PASSED CHECKS
 -------------
-[✓] [Category] — [what passed]
+[✓] [Category] — [what passed] - Max 80 characters
 ...
 
 FAILED CHECKS (must fix)
 ------------------------
-[✗] [Category] — [specific violation]
+[✗] [Category] — [specific violation] - Max 80 characters
     File: [file path:line number if applicable]
     Rule: [the rule that was violated]
-    Fix:  [specific remediation instruction]
+    Fix:  [specific remediation instruction] - Max 150 characters
 ...
 
 WARNINGS (should fix)
 ---------------------
-[⚠] [Category] — [deviation from best practice]
+[⚠] [Category] — [deviation from best practice] - Max 80 characters
     File: [file path]
-    Recommendation: [what to do]
+    Recommendation: [what to do] - Max 150 characters
 ...
 
 ARCHITECTURE VERDICT
