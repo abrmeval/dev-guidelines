@@ -20,7 +20,7 @@ permission:
    - action: grep
      resource: "*"
      effect: allow
-  - action: shell
+   - action: shell
      resource: "*"
      effect: ask
    - action: shell
@@ -56,7 +56,7 @@ permission:
    - action: shell
      resource: "uv build *"
      effect: allow
-  -  action: shell
+   -  action: shell
      resource: "uv init *"
      effect: allow
    - action: shell
