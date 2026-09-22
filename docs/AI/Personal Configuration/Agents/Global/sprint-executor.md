@@ -5,60 +5,60 @@ description: Invoke this agent to execute a sprint or run sprint tasks.
 model: opencode-go/gpt-5.6-luna#deterministic-deep
 mode: subagent
 permission:
-   - action: "*"
-     resource: "*"
-     effect: deny
-   - action: read
-     resource: "*"
-     effect: allow
-   - action: edit
-     resource: "*"
-     effect: allow
-   - action: glob
-     resource: "*"
-     effect: allow
-   - action: grep
-     resource: "*"
-     effect: allow
-   - action: shell
-     resource: "*"
-     effect: ask
-   - action: shell
-     resource: "find *"
-     effect: allow
-   - action: shell
-     resource: "ls *"
-     effect: allow
-   - action: shell
-     resource: "dotnet build *"
-     effect: allow
-   - action: shell
-     resource: "dotnet format *"
-     effect: allow
-   - action: shell
-     resource: "npm run lint"
-     effect: allow
-   - action: shell
-     resource: "npm run build"
-     effect: allow
-   - action: shell
-     resource: "uv build *"
-     effect: allow
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: ask
+  - action: shell
+    resource: "find *"
+    effect: allow
+  - action: shell
+    resource: "ls *"
+    effect: allow
+  - action: shell
+    resource: "dotnet build *"
+    effect: allow
+  - action: shell
+    resource: "dotnet format *"
+    effect: allow
+  - action: shell
+    resource: "npm run lint"
+    effect: allow
+  - action: shell
+    resource: "npm run build"
+    effect: allow
+  - action: shell
+    resource: "uv build *"
+    effect: allow
   -  action: shell
      resource: "uv init *"
      effect: allow
-   - action: shell
-     resource: "uv run *"
-     effect: allow
-   - action: shell
-     resource: "git diff *"
-     effect: allow
-   - action: shell
-     resource: "git status *"
-     effect: allow
-   - action: shell
-     resource: "git log *"
-     effect: allow
+  - action: shell
+    resource: "uv run *"
+    effect: allow
+  - action: shell
+    resource: "git diff *"
+    effect: allow
+  - action: shell
+    resource: "git status *"
+    effect: allow
+  - action: shell
+    resource: "git log *"
+    effect: allow
 ---
 
 # Agent Instructions
