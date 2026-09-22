@@ -121,7 +121,7 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
 - `~/.opencode.json`: Global settings for the AI agents, including model preferences and tools.
 - .env: file containing secrets for the Azure MCP Server (AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET)
 ```json
-//"Never commit tokens/secrets; keep them in local-only secret stores/env files." 
+// OpenCode v1 – Still supported
 {
     "$schema": "https://opencode.ai/config.json",
     "mcp": {
@@ -193,7 +193,255 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
         }
     }
 }
+// -----------------------------------------------------------
+// -----------------------------------------------------------
+// Opencode v2
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "microsoft-learn": {
+        "type": "remote",
+        "url": "https://learn.microsoft.com/api/mcp"
+      },
+      "github": {
+        "type": "remote",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:GITHUB_MCP_TOKEN}"
+        }
+      },
+      "playwright": {
+        "type": "local",
+        "command": [
+          "npx",
+          "@playwright/mcp@latest"
+        ]
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest"
+        ]
+      },
+      "nuget": {
+        "type": "local",
+        "command": [
+          "dnx",
+          "NuGet.Mcp.Server@1.4.3",
+          "--source",
+          "https://api.nuget.org/v3/index.json",
+          "--yes"
+        ]
+      },
+      "aws-mcp": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "mcp-proxy-for-aws==1.6.2",
+          "https://aws-mcp.us-east-1.api.aws/mcp",
+          "--metadata",
+          "AWS_REGION=us-west-2"
+        ],
+        "timeout": {
+          "catalog": 100000,
+          "execution": 100000
+        }
+      },
+      "Azure MCP Server": {
+        "type": "local",
+        "command": [
+          "docker",
+          "run",
+          "-i",
+          "--rm",
+          "--env-file",
+          "C:\\Users\\abrah\\.config\\opencode\\.env",
+          "mcr.microsoft.com/azure-sdk/azure-mcp:latest"
+        ]
+      },
+      "headroom": {
+        "type": "local",
+        "command": [
+          "C:\\Users\\abrah\\.local\\bin\\headroom.EXE",
+          "mcp",
+          "serve"
+        ]
+      },
+      "serena": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "--from",
+          "serena-agent",
+          "serena",
+          "start-mcp-server",
+          "--project-from-cwd",
+          "--context",
+          "agent",
+          "--open-web-dashboard",
+          "False"
+        ]
+      }
+    }
+  },
+  "providers": {
+    "headroom": {
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "name": "Headroom Proxy",
+      "settings": {
+        "baseURL": "http://127.0.0.1:8787/v1"
+      },
+      "models": {
+        "gpt-4o": {
+          "name": "GPT-4o",
+          "limit": {
+            "context": 128000,
+            "output": 16384
+          }
+        },
+        "gpt-4.1": {
+          "name": "GPT-4.1",
+          "limit": {
+            "context": 1048576,
+            "output": 32768
+          }
+        }
+      }
+    },
+     "opencode-go": {
+      "models": {
+        "glm-5.2": {
+          "variants": [
+            {
+              "id": "deterministic",
+              "settings": {
+                "reasoningEffort": "high"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            },
+            {
+              "id": "deterministic-deep",
+              "settings": {
+                "reasoningEffort": "max"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            },
+            {
+              "id": "exact",
+              "settings": {
+                "reasoningEffort": "high"
+              },
+              "body": {
+                "temperature": 0.1
+              }
+            },
+            {
+              "id": "exact-deep",
+              "settings": {
+                "reasoningEffort": "max"
+              },
+              "body": {
+                "temperature": 0.1
+              }
+            },
+            {
+              "id": "precise",
+              "settings": {
+                "reasoningEffort": "high"
+              },
+              "body": {
+                "temperature": 0.2
+              }
+            },
+            {
+              "id": "precise-deep",
+              "settings": {
+                "reasoningEffort": "max"
+              },
+              "body": {
+                "temperature": 0.2
+              }
+            }
+          ]
+        },
+        "gpt-5.6-luna": {
+          "variants": [
+            {
+              "id": "deterministic",
+              "settings": {
+                "reasoningEffort": "high",
+                "textVerbosity": "low"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            },
+            {
+              "id": "deterministic-deep",
+              "settings": {
+                "reasoningEffort": "max",
+                "textVerbosity": "low"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            }
+          ]
+        },
+         "glm-5.3": {
+          "variants": [
+            {
+              "id": "deterministic",
+              "settings": {
+                "reasoningEffort": "high"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            },
+            {
+              "id": "deterministic-deep",
+              "settings": {
+                "reasoningEffort": "max"
+              },
+              "body": {
+                "temperature": 0.0
+              }
+            },
+            {
+              "id": "exact",
+              "settings": {
+                "reasoningEffort": "high"
+              },
+              "body": {
+                "temperature": 0.1
+              }
+            },
+            {
+              "id": "exact-deep",
+              "settings": {
+                "reasoningEffort": "max"
+              },
+              "body": {
+                "temperature": 0.1
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
 ```
 ---
 
-*Last Updated: 09 Sep 2026*
+*Last Updated: 22 Sep 2026*

@@ -1,33 +1,64 @@
 ---
 title: Sprint Executor
 sidebar_position: 3
-description: |
-  Invoke this agent to execute a sprint or run sprint tasks.
-model: opencode-go/gpt-5.6-luna
+description: Invoke this agent to execute a sprint or run sprint tasks.
+model: opencode-go/gpt-5.6-luna#deterministic-deep
 mode: subagent
-reasoningEffort: max
-textVerbosity: low
-temperature: 0.0
 permission:
-  read: allow
-  edit: allow
-  write: allow
-  glob: allow
-  grep: allow
-  bash:
-    "find *": allow
-    "ls *": allow
-    "dotnet build *": allow
-    "dotnet format *": allow
-    "npm run lint": allow
-    "npm run build": allow
-    "uv build *": allow
-    "uv init *": allow
-    "uv run *": allow
-    "git diff *": allow
-    "git status *": allow
-    "git log *": allow
-  "*": ask
+   - action: "*"
+     resource: "*"
+     effect: deny
+   - action: read
+     resource: "*"
+     effect: allow
+   - action: edit
+     resource: "*"
+     effect: allow
+   - action: glob
+     resource: "*"
+     effect: allow
+   - action: grep
+     resource: "*"
+     effect: allow
+   - action: shell
+     resource: "*"
+     effect: ask
+   - action: shell
+     resource: "find *"
+     effect: allow
+   - action: shell
+     resource: "ls *"
+     effect: allow
+   - action: shell
+     resource: "dotnet build *"
+     effect: allow
+   - action: shell
+     resource: "dotnet format *"
+     effect: allow
+   - action: shell
+     resource: "npm run lint"
+     effect: allow
+   - action: shell
+     resource: "npm run build"
+     effect: allow
+   - action: shell
+     resource: "uv build *"
+     effect: allow
+  -  action: shell
+     resource: "uv init *"
+     effect: allow
+   - action: shell
+     resource: "uv run *"
+     effect: allow
+   - action: shell
+     resource: "git diff *"
+     effect: allow
+   - action: shell
+     resource: "git status *"
+     effect: allow
+   - action: shell
+     resource: "git log *"
+     effect: allow
 ---
 
 # Agent Instructions

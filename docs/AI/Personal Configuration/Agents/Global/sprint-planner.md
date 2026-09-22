@@ -2,22 +2,42 @@
 title: Sprint Planner
 sidebar_position: 1
 description: An agent that creates, plans, or organizes a well-structured sprint file.
-model: opencode-go/glm-5.3
+model: opencode-go/glm-5.3#exact-deep
 mode: subagent
-temperature: 0.1
 permission:
-  read: allow
-  edit: allow
-  write: allow
-  glob: allow
-  grep: allow
-  bash:
-    "find *": allow
-    "ls *": allow
-    "git diff *": allow
-    "git status *": allow
-    "git log *": allow
-  "*": ask
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: ask
+  - action: shell
+    resource: "find *"
+    effect: allow
+  - action: shell
+    resource: "ls *"
+    effect: allow
+  - action: shell
+    resource: "git diff *"
+    effect: allow
+  - action: shell
+    resource: "git status *"
+    effect: allow
+  - action: shell
+    resource: "git log *"
+    effect: allow
 ---
 
 # Agent Instructions

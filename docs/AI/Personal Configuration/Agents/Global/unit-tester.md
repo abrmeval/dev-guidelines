@@ -1,35 +1,76 @@
 ---
 title: Unit Tester
 sidebar_position: 5
-description: |
-  An agent that writes and runs unit tests on a project and reports the results. Invoke this agent when you want to write and run unit tests on a project and get a summary of the results.
-model: muse-spark-1.3-contributor-xhigh
+description: An agent that writes and runs unit tests on a project and reports the results. Invoke this agent when you want to write and run unit tests on a project and get a summary of the results.
+model: opencode-go/muse-spark-1.3-contributor#xhigh
 mode: subagent
-textVerbosity: low
-temperature: 0.1
 permission:
-  read: allow
-  edit: allow
-  write: allow
-  glob: allow
-  grep: allow
-  bash:
-    "find *": allow
-    "ls *": allow
-    "dotnet build *": allow
-    "dotnet test *": allow
-    "dotnet format *": allow
-    "dotnet run *": allow
-    "npm run lint": allow
-    "npm run build": allow
-    "npm run test": allow
-    "npm run dev": allow
-    "uv build *": allow
-    "uv init *": allow
-    "uv run pytest": allow
-    "uv run *": allow
-    "git status *": allow
-  "*": ask
+   - action: "*"
+     resource: "*"
+     effect: deny
+   - action: read
+     resource: "*"
+     effect: allow
+   - action: edit
+     resource: "*"
+     effect: allow
+   - action: glob
+     resource: "*"
+     effect: allow
+   - action: grep
+     resource: "*"
+     effect: allow
+  - action: shell
+     resource: "*"
+     effect: ask
+   - action: shell
+     resource: "find *"
+     effect: allow
+   - action: shell
+     resource: "ls *"
+     effect: allow
+   - action: shell
+     resource: "dotnet build *"
+     effect: allow
+   - action: shell
+     resource: "dotnet test *"
+     effect: allow
+   - action: shell
+     resource: "dotnet format *"
+     effect: allow
+   - action: shell
+     resource: "dotnet run *"
+     effect: allow
+   - action: shell
+     resource: "npm run lint"
+     effect: allow
+   - action: shell
+     resource: "npm run build"
+     effect: allow
+   - action: shell
+     resource: "npm run test"
+     effect: allow
+   - action: shell
+     resource: "npm run dev"
+     effect: allow
+   - action: shell
+     resource: "uv build *"
+     effect: allow
+  -  action: shell
+     resource: "uv init *"
+     effect: allow
+   - action: shell
+     resource: "uv run *"
+     effect: allow
+   - action: shell
+     resource: "git diff *"
+     effect: allow
+   - action: shell
+     resource: "git status *"
+     effect: allow
+   - action: shell
+     resource: "git log *"
+     effect: allow
 ---
 
 # Agent Instructions

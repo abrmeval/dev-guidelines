@@ -1,26 +1,43 @@
 ---
 title: Auditor
 sidebar_position: 4
-description: |
-  Invoke this agent to review/audit recently changed code against project guidelines and best practices. It reads, searches, and reports but never modifies files.
-model: opencode-go/glm-5.2
+description: Invoke this agent to review/audit recently changed code against project guidelines and best practices. It reads, searches, and reports but never modifies files.
+model: opencode-go/glm-5.2#exact-deep
 mode: subagent
-temperature: 0.1
 permission:
-  read: allow
-  glob: allow
-  grep: allow
-  edit: deny
-  write: deny
-  webfetch: allow
-  skill:
-    "docu-expert": allow
-  bash:
-    "git status *": allow
-    "git branch --show-current": allow
-    "git log *": allow
-    "git diff *": allow
-  "*": ask
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: webfetch
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: docu-expert
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: ask
+  - action: shell
+    resource: "git status *"
+    effect: allow
+  - action: shell
+    resource: "git branch --show-current"
+    effect: allow
+  - action: shell
+    resource: "git log *"
+    effect: allow
+  - action: shell
+    resource: "git diff *"
+    effect: allow
 ---
 
 # Agent Instructions

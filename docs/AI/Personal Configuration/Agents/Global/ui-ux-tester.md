@@ -1,27 +1,52 @@
 ---
 title: UI/UX Tester
 sidebar_position: 7
-description: |
-  An agent that runs UI/UX tests on a project and reports the results. Invoke this agent when you want to run UI/UX tests on a project and get a summary of the results. It covers CSS styling, usability, responsiveness, and WCAG 2.2 guidelines.
-model: opencode-go/glm-5.2
+description: An agent that runs UI/UX tests on a project and reports the results. Invoke this agent when you want to run UI/UX tests on a project and get a summary of the results. It covers CSS styling, usability, responsiveness, and WCAG 2.2 guidelines.
+model: opencode-go/glm-5.2#precise
 mode: subagent
-temperature: 0.2
 permission:
-  read: allow
-  glob: allow
-  grep: allow
-  webfetch: allow
-  skill:
-    "chrome-devtools-axi": allow
-  bash:
-    "find *": allow
-    "ls *": allow
-    "dotnet run *": allow
-    "npm run dev": allow
-    "uv run *": allow
-    "git status *": allow
-    "git log *": allow
-  "*": ask
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: webfetch
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: "chrome-devtools-axi"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: ask
+  - action: shell
+    resource: "find *"
+    effect: allow
+  - action: shell
+    resource: "ls *"
+    effect: allow
+  - action: shell
+    resource: "dotnet run *"
+    effect: allow
+  - action: shell
+    resource: "npm run dev"
+    effect: allow
+  - action: shell
+    resource: "uv run *"
+    effect: allow
+  - action: shell
+    resource: "git status*"
+    effect: allow
+  - action: shell
+    resource: "git log *"
+    effect: allow
 ---
 
 # Agent Instructions

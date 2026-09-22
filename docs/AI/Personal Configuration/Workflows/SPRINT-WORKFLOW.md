@@ -14,12 +14,12 @@ import { registerWorkflowExtension } from "../npm/node_modules/pi-extensible-wor
  * Runs a full sprint cycle with 8 role-based agents:
  *
  *   Phase 1 — development:
- *     sprint-planner -> sprint-executor -> auditor
- *       (issues at any point -> developer fixes -> step re-runs)
+ *      sprint-executor -> auditor
+ *       (issues at any point -> dev-fixer fixes -> step re-runs)
  *
  *   Phase 2 — testing:
  *     unit-tester -> test-planner -> e2e-tester -> ui-ux-tester
- *       (issues at any point -> developer fixes -> step re-runs)
+ *       (issues at any point -> dev-fixer fixes -> step re-runs)
  *
  * Every agent returns exactly one of:
  *   { isOk: true,  result: "<markdown report>" }          — success
@@ -29,11 +29,11 @@ import { registerWorkflowExtension } from "../npm/node_modules/pi-extensible-wor
  */
 const sprintExtension = {
   version: "1.0.0",
-  headline: "Sprint workflow",
+  headline: "Sprint Dev workflow",
   functions: {
-    sprintWorkflow: {
+    sprintDevWorkflow: {
       description:
-        "Run a full sprint cycle: planning, execution and audit (development phase), then unit tests, test planning, e2e and ui-ux verification (testing phase). Issues are routed to a developer agent and re-verified. Returns a consolidated markdown report.",
+        "Run a full sprint cycle: from executing a sprint plan, audit (development phase), then unit tests, test planning, e2e and ui-ux verification (testing phase). Issues are routed to a dev-fixer agent and re-verified. Returns a consolidated markdown report.",
 
       // ---- Input contract -------------------------------------------------
       input: {
@@ -123,8 +123,19 @@ const sprintExtension = {
           });
         };
 
+        const logError = (result, agent) => {
+          context.log(
+            `The ${agent} returned the following: ` +
+              result
+                .map((m) => {
+                  return "issue: " + m.issue + "; fix: " + m.fix;
+                })
+                .join(".\n"),
+          );
+        };
+
         /**
-         * Runs one step. If the agent reports issues, the developer agent
+         * Runs one step. If the agent reports issues, the dev-fixer agent
          * applies the fixes and the step re-runs to verify — bounded by
          * maxFixRounds. Returns the step's final result.
          */
@@ -144,53 +155,40 @@ const sprintExtension = {
             if (last.isOk) return last;
             if (round === maxFixRounds) return last;
 
-            // Issues found -> developer resolves them.
+            // Issues found -> dev-fixer resolves them.
             const fix = await context.agent(
               context.prompt(
                 "The {step} agent reported the following issues:\n" +
                   "<issues>{issues}</issues>\n\n" +
                   "Resolve every issue by applying its suggested fix in the repository." +
                   RESULT_CONTRACT,
-                { step, issues: last.result }
+                { step, issues: last.result },
               ),
-              { role: "developer", label: `developer:${step}`, outputSchema: agentResultSchema }
+              {
+                role: "dev-fixer",
+                label: `dev fixer:${step}`,
+                outputSchema: agentResultSchema,
+              },
             );
-            record(phase, `fix:${step}`, "developer", fix);
-            if (!fix.isOk) return last; // developer blocked; keep issues on record
+            record(phase, `fix:${step}`, "dev-fixer", fix);
+            if (!fix.isOk) return last; // dev-fixer blocked; keep issues on record
 
-            // Developer succeeded -> re-run the same step on the fixed repo.
+            // dev-fixer succeeded -> re-run the same step on the fixed repo.
             request = context.prompt(
               instruction +
-                "\n\nA previous round found issues that the developer has now addressed. " +
+                "\n\nA previous round found issues that the dev-fixer has now addressed. " +
                 "Re-run and verify.\n" +
                 "<previous_issues>{issues}</previous_issues>\n" +
-                "<developer_fix>{fix}</developer_fix>" +
+                "<dev-fixer>{fix}</dev-fixer>" +
                 RESULT_CONTRACT,
-              { ...values, issues: last.result, fix: fix.result }
+              { ...values, issues: last.result, fix: fix.result },
             );
           }
           return last;
         };
 
         // =================================================================
-        // Phase 1 — Planning
-        // =================================================================
-
-        context.phase("planning");
-
-        const plan = await runStep(
-          "planning",
-          "plan",
-          "sprint-planner",
-          "Plan the sprint: {sprint}.\n\n" +
-            "Read the sprint file and docs/sprints/SPRINTS-OVERVIEW.md first. " +
-            "Produce an execution plan: goals, ordered task breakdown, dependencies, " +
-            "risks, and acceptance criteria per task.",
-          { sprint }
-        );
-
-        // =================================================================
-        // Phase 2 — Development (execution, audit)
+        // Phase 1 — Development (execution, audit)
         // =================================================================
         context.phase("development");
 
@@ -198,33 +196,31 @@ const sprintExtension = {
           "development",
           "execution",
           "sprint-executor",
-          "Execute the sprint tasks for: {sprint}.\n\n" +
-            "Read this project context first:\n" +
-            "- AGENTS.md at the repository root\n" +
-            "- docs/sprints/SPRINTS-OVERVIEW.md\n" +
-            "- the sprint file: {sprint}\n" +
-            "- any other docs/ files you need\n\n" +
-            "The sprint plan:\n<plan>{plan}</plan>\n\n" +
-            "Implement every task in the plan following AGENTS.md conventions. " +
-            "Verify with the repository's build and test commands before finishing.",
-          { sprint, plan: plan.result }
+          "Read and execute the following sprint: {sprint}.",
+          { sprint },
         );
+
+        if (!execution.isOk) {
+          logError(execution.result, "sprint-executor");
+          return;
+        }
 
         const audit = await runStep(
           "development",
           "audit",
           "auditor",
-          "Audit the completed sprint work for: {sprint}.\n\n" +
-            "The executor's summary:\n<summary>{summary}</summary>\n\n" +
-            "Check the work against the sprint tasks and AGENTS.md standards: " +
-            "correctness, conventions, leftover TODOs, build and test health. " +
-            "Report every issue with a concrete fix; return markdown approval " +
-            "only if nothing is wrong.",
-          { sprint, summary: execution.result }
+          "Review the code for the sprint: {sprint}." +
+            "The sprint-executor's agent response:\n<response>{response}</response>\n\n",
+          { sprint, response: execution.result },
         );
 
+        if (!audit.isOk) {
+          logError(audit.result, "auditor");
+          return;
+        }
+
         // =================================================================
-        // Phase 3 — Testing (unit, test plan, e2e, ui-ux)
+        // Phase 2 — Testing (unit, test plan, e2e, ui-ux)
         // =================================================================
         context.phase("testing");
 
@@ -232,24 +228,28 @@ const sprintExtension = {
           "testing",
           "unit testing",
           "unit-tester",
-          "Run and verify the unit tests for the sprint work: {sprint}.\n\n" +
-            "The executor's summary:\n<summary>{summary}</summary>\n\n" +
-            "Run the repository's unit test commands. Report each failure with " +
-            "its fix; return markdown results when the suite is green.",
-          { sprint, summary: execution.result }
+          "Create (if necessary), run and verify the unit tests for the sprint: {sprint}.\n\n" +
+            "Run the repository's unit test commands.",
+          { sprint },
         );
+
+        if (!unit.isOk) {
+          logError(unit.result, "unit-tester");
+          return;
+        }
 
         const testPlan = await runStep(
           "testing",
           "test planning",
           "test-planner",
-          "Create a test plan for the sprint work: {sprint}.\n\n" +
-            "Executor summary:\n<summary>{summary}</summary>\n\n" +
-            "Unit test report:\n<unit_report>{unitReport}</unit_report>\n\n" +
-            "Plan the remaining verification: end-to-end scenarios and UI checks, " +
-            "each with concrete steps and expected outcomes.",
-          { sprint, summary: execution.result, unitReport: unit.result }
+          "Create a test plan for the sprint: {sprint}.",
+          { sprint },
         );
+
+        if (!testPlan.isOk) {
+          logError(testPlan.result, "test-planner");
+          return;
+        }
 
         const e2e = await runStep(
           "testing",
@@ -257,23 +257,28 @@ const sprintExtension = {
           "e2e-tester",
           "Execute the end-to-end test plan for: {sprint}.\n\n" +
             "The test plan:\n<test_plan>{testPlan}</test_plan>\n\n" +
-            "Run each scenario end-to-end. Report each failure with its fix; " +
-            "return markdown results when all scenarios pass.",
-          { sprint, testPlan: testPlan.result }
+            "Run each scenario end-to-end. Report each failure with its fix.",
+          { sprint, testPlan: testPlan.result },
         );
+
+        if (!e2e.isOk) {
+          logError(e2e.result, "e2e-tester");
+          return;
+        }
 
         const uiux = await runStep(
           "testing",
           "ui/ux testing",
           "ui-ux-tester",
           "Verify the UI/UX of the sprint deliverables for: {sprint}.\n\n" +
-            "Executor summary:\n<summary>{summary}</summary>\n\n" +
-            "Check the UI against docs/ui-design-rules.md: layout, spacing, " +
-            "colors, component states, responsiveness. Be strict about " +
-            "pixel-level correctness. Report each issue with its fix; return " +
-            "markdown results when the UI is correct.",
-          { sprint, summary: execution.result }
+            "The test plan:\n<test_plan>{testPlan}</test_plan>",
+          { sprint, testPlan: testPlan.result },
         );
+
+        if (!uiux.isOk) {
+          logError(uiux.result, "ui-ux-tester");
+          return;
+        }
 
         // =================================================================
         // Consolidation — assemble the final markdown report
@@ -282,23 +287,23 @@ const sprintExtension = {
         const byStep = new Map();
         for (const s of steps) byStep.set(s.step, s);
         const finalSteps = [...byStep.values()].filter(
-          (s) => !s.step.startsWith("fix:")
+          (s) => !s.step.startsWith("fix:"),
         );
-        const devFixes = steps.filter((s) => s.agent === "developer");
+        const devFixes = steps.filter((s) => s.agent === "dev-fixer");
         const unresolved = finalSteps.filter((s) => !s.isOk);
 
         const section = (s) =>
           `### ${s.step} (${s.agent}) — ${s.isOk ? "OK" : "UNRESOLVED ISSUES"}\n\n${s.detail}\n`;
 
         const report = [
-          `# Sprint Workflow Report — ${sprint}`,
+          `# Sprint Dev Workflow Report — ${sprint}`,
           "",
           `- **Overall:** ${
             unresolved.length === 0
               ? "ALL STEPS PASSED"
               : `UNRESOLVED — ${unresolved.map((s) => s.step).join(", ")}`
           }`,
-          `- **Developer interventions:** ${devFixes.length}${
+          `- **dev-fixer interventions:** ${devFixes.length}${
             devFixes.length
               ? ` (${devFixes.map((f) => f.step.replace("fix:", "")).join(", ")})`
               : ""
@@ -315,7 +320,8 @@ const sprintExtension = {
                 "## Unresolved Issues",
                 "",
                 ...unresolved.map(
-                  (s) => `- **${s.step}** — see its section above for issues and suggested fixes`
+                  (s) =>
+                    `- **${s.step}** — see its section above for issues and suggested fixes`,
                 ),
                 "",
               ]
@@ -329,10 +335,10 @@ const sprintExtension = {
 
         context.log(
           unresolved.length === 0
-            ? `Sprint workflow complete — all steps passed (${devFixes.length} developer fix round(s)).`
-            : `Sprint workflow finished with unresolved issues in: ${unresolved
+            ? `Workflow complete — all steps passed (${devFixes.length} dev-fixer fix round(s)).`
+            : `Workflow finished with unresolved issues in: ${unresolved
                 .map((s) => s.step)
-                .join(", ")}.`
+                .join(", ")}.`,
         );
 
         return report;
@@ -344,4 +350,5 @@ const sprintExtension = {
 export default function extension() {
   registerWorkflowExtension(sprintExtension);
 }
+
 ```
