@@ -2,7 +2,7 @@
 title: E2E Tester
 sidebar_position: 6
 description: An agent that runs E2E tests on a project and reports the results. Invoke this agent when you want to run End-to-End tests on a project and get a summary of the results.
-model: opencode-go/glm-5.2#precise
+model: opencode-go/muse-spark-1.3-contributor#xhigh
 mode: subagent
 permission:
   - action: "*"

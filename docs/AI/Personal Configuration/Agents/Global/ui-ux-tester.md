@@ -2,7 +2,7 @@
 title: UI/UX Tester
 sidebar_position: 7
 description: An agent that runs UI/UX tests on a project and reports the results. Invoke this agent when you want to run UI/UX tests on a project and get a summary of the results. It covers CSS styling, usability, responsiveness, and WCAG 2.2 guidelines.
-model: opencode-go/glm-5.2#precise
+model: opencode-go/muse-spark-1.3-contributor#xhigh
 mode: subagent
 permission:
   - action: "*"

@@ -18,7 +18,9 @@ import { registerWorkflowExtension } from "../npm/node_modules/pi-extensible-wor
  *       (issues at any point -> dev-fixer fixes -> step re-runs)
  *
  *   Phase 2 — testing:
- *     unit-tester -> test-planner -> e2e-tester -> ui-ux-tester
+ *     unit-tester and test-planner run in parallel; once the test plan
+ *     is ready, e2e-tester and ui-ux-tester run in parallel. The phase
+ *     completes when unit-tester, e2e-tester and ui-ux-tester finish.
  *       (issues at any point -> dev-fixer fixes -> step re-runs)
  *
  * Every agent returns exactly one of:
@@ -33,7 +35,7 @@ const sprintExtension = {
   functions: {
     sprintDevWorkflow: {
       description:
-        "Run a full sprint cycle: from executing a sprint plan, audit (development phase), then unit tests, test planning, e2e and ui-ux verification (testing phase). Issues are routed to a dev-fixer agent and re-verified. Returns a consolidated markdown report.",
+        "Run a full sprint cycle: from executing a sprint plan, audit (development phase), then unit tests and test planning in parallel, then e2e and ui-ux verification in parallel once the test plan is ready (testing phase). Issues are routed to a dev-fixer agent and re-verified. Returns a consolidated markdown report.",
 
       // ---- Input contract -------------------------------------------------
       input: {
@@ -222,53 +224,79 @@ const sprintExtension = {
         // =================================================================
         context.phase("testing");
 
-        const unit = await runStep(
-          "testing",
-          "unit testing",
-          "unit-tester",
-          "Create (if necessary), run and verify the unit tests for the sprint: {sprint}.\n\n" +
-            "Run the repository's unit test commands.",
-          { sprint },
-        );
+        // Unit testing and test planning start in parallel. As soon as the
+        // test plan is ready, e2e and ui/ux testing start in parallel inside
+        // the test-planning branch. The outer parallel returns only after
+        // unit-tester, e2e-tester and ui-ux-tester have all finished.
+        const testing = await context.parallel("testing", {
+          "unit testing": () =>
+            runStep(
+              "testing",
+              "unit testing",
+              "unit-tester",
+              "Create (if necessary), run and verify the unit tests for the sprint: {sprint}.\n\n" +
+                "Run the repository's unit test commands.",
+              { sprint },
+            ),
+
+          "test planning": async () => {
+            const plan = await runStep(
+              "testing",
+              "test planning",
+              "test-planner",
+              "Create a test plan for the sprint: {sprint}.",
+              { sprint },
+            );
+
+            // Without a test plan there is nothing to verify end-to-end.
+            if (!plan.isOk) return { plan, e2e: null, uiux: null };
+
+            const verification = await context.parallel("verification", {
+              "e2e testing": () =>
+                runStep(
+                  "testing",
+                  "e2e testing",
+                  "e2e-tester",
+                  "Execute the end-to-end test plan for: {sprint}.\n\n" +
+                    "The test plan:\n<test_plan>{testPlan}</test_plan>\n\n" +
+                    "Run each scenario end-to-end. Report each failure with its fix.",
+                  { sprint, testPlan: plan.result },
+                ),
+
+              "ui/ux testing": () =>
+                runStep(
+                  "testing",
+                  "ui/ux testing",
+                  "ui-ux-tester",
+                  "Verify the UI/UX of the sprint deliverables for: {sprint}.\n\n" +
+                    "The test plan:\n<test_plan>{testPlan}</test_plan>",
+                  { sprint, testPlan: plan.result },
+                ),
+            });
+
+            return {
+              plan,
+              e2e: verification["e2e testing"],
+              uiux: verification["ui/ux testing"],
+            };
+          },
+        });
+
+        const unit = testing["unit testing"];
+        const { plan: testPlan, e2e, uiux } = testing["test planning"];
 
         if (!unit.isOk) {
           return logError(unit.result, "unit-tester");
         }
 
-        const testPlan = await runStep(
-          "testing",
-          "test planning",
-          "test-planner",
-          "Create a test plan for the sprint: {sprint}.",
-          { sprint },
-        );
-
         if (!testPlan.isOk) {
           return logError(testPlan.result, "test-planner");
         }
 
-        const e2e = await runStep(
-          "testing",
-          "e2e testing",
-          "e2e-tester",
-          "Execute the end-to-end test plan for: {sprint}.\n\n" +
-            "The test plan:\n<test_plan>{testPlan}</test_plan>\n\n" +
-            "Run each scenario end-to-end. Report each failure with its fix.",
-          { sprint, testPlan: testPlan.result },
-        );
-
+        // The test plan succeeded, so the e2e and ui/ux results exist.
         if (!e2e.isOk) {
           return logError(e2e.result, "e2e-tester");
         }
-
-        const uiux = await runStep(
-          "testing",
-          "ui/ux testing",
-          "ui-ux-tester",
-          "Verify the UI/UX of the sprint deliverables for: {sprint}.\n\n" +
-            "The test plan:\n<test_plan>{testPlan}</test_plan>",
-          { sprint, testPlan: testPlan.result },
-        );
 
         if (!uiux.isOk) {
           return logError(uiux.result, "ui-ux-tester");
@@ -280,10 +308,28 @@ const sprintExtension = {
         // Final outcome per step (re-runs overwrite earlier rounds).
         const byStep = new Map();
         for (const s of steps) byStep.set(s.step, s);
-        const finalSteps = [...byStep.values()].filter(
-          (s) => !s.step.startsWith("fix:"),
-        );
-        const devFixes = steps.filter((s) => s.agent === "dev-fixer");
+
+        // Parallel testing steps finish in nondeterministic order; the
+        // report follows the canonical step sequence instead of arrival.
+        const stepOrder = [
+          "execution",
+          "audit",
+          "unit testing",
+          "test planning",
+          "e2e testing",
+          "ui/ux testing",
+        ];
+        const stepRank = (step) => {
+          const index = stepOrder.indexOf(step.replace("fix:", ""));
+          return index === -1 ? stepOrder.length : index;
+        };
+
+        const finalSteps = [...byStep.values()]
+          .filter((s) => !s.step.startsWith("fix:"))
+          .sort((a, b) => stepRank(a.step) - stepRank(b.step));
+        const devFixes = steps
+          .filter((s) => s.agent === "dev-fixer")
+          .sort((a, b) => stepRank(a.step) - stepRank(b.step));
         const unresolved = finalSteps.filter((s) => !s.isOk);
 
         const section = (s) =>
