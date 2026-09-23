@@ -3,7 +3,7 @@ title: Sprint Planner
 sidebar_position: 1
 description: An agent that creates, plans, or organizes a well-structured sprint file.
 model: opencode-go/glm-5.3#exact-deep
-mode: subagent
+mode: all
 permission:
   - action: "*"
     resource: "*"

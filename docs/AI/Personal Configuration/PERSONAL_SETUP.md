@@ -22,8 +22,8 @@ In Windows, the global configuration is stored in `%USERPROFILE%\agents` and inc
 - skills: Global skills that can be used across all projects.
 - commands: Global commands that can be used across all projects.
 - agents: Global agents that can be used across all projects.
-This configuration will be read by all AI agents, including Claude Code, OpenCode, GitHub Copilot and others.
-Every AI provider adds its own configuration files and directory for their agents. So in every directory will be included the corresponding files but pointing to the same global configuration in agents.
+  This configuration will be read by all AI agents, including Claude Code, OpenCode, GitHub Copilot and others.
+  Every AI provider adds its own configuration files and directory for their agents. So in every directory will be included the corresponding files but pointing to the same global configuration in agents.
 
 ### AGENTS.md
 
@@ -32,9 +32,11 @@ There will be a global CLAUDE.md file that will point to the global AGENTS.md fi
 There will be a symbolic link renamed as CLAUDE.md that references AGENTS.md.
 
 An alternative option is adding the following in CLAUDE.md:
+
 ```markdown
 @AGENTS.md
 ```
+
 The same happens with other AI agents from different providers.
 
 ### Skills
@@ -43,14 +45,17 @@ Skills are in the `~/.agents` global directory. The skills are referenced in eve
 For example, in `~/.claude/skills` there is a symbolic link pointing to the skills in `~/.agents/skills`. Skills have a standard structure with compatible options only.
 
 Domain specific skills:
+
 - microsoft-code-reference
 - microsoft-docs
 - microsoft-skill-creator
 
 General dev skills:
+
 - mcp-analizer
 
 Tools:
+
 - chrome-devtools-axi: Wraps chrome-devtools-mcp with an AXI-compliant CLI.
 - lavish: A skill that helps agents turn rich HTML artifacts into collaborative human review surfaces.
 - no-mistakes: A local gate that validates your code changes through a pipeline before they reach the configured push target.
@@ -77,13 +82,13 @@ To ensure compatibility, only options available across different providers are s
 - sprint-executor
 - sprint-planner
 
-
 ## Project Configuration
 
 In every project, there will be specific context, definitions, documentation, skills, commands, and agents/subagents that support development through release.
 The logic will be the same as for global configuration. All AI context lives in a `./agents` folder, and those files are referenced in every AI provider folder as symbolic links to avoid repetition and enhance maintainability.
 
 ### Skills
+
 Skills are in the `./agents` directory. Skills are referenced in every AI provider directory by using symbolic links.
 For example, in `./claude/skills` there are symbolic links pointing to skills in `./agents/skills`. Skills have a standard structure with compatible options only.
 
@@ -115,11 +120,13 @@ React
 
 For OpenCode, the global configuration is stored in `~/.opencode/`, including global configurations and user-specific options.
 In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencode`.
+
 - skills: Global skills that can be used across all projects (Symbolic links instead).
 - commands: Global commands that can be used across all projects (Symbolic links instead).
 - agents: Global agents that can be used across all projects (Symbolic links instead).
 - `~/.opencode.json`: Global settings for the AI agents, including model preferences and tools.
 - .env: file containing secrets for the Azure MCP Server (AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET)
+
 ```json
 // OpenCode v1 – Still supported
 {
@@ -375,23 +382,17 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
         "gpt-5.6-luna": {
           "variants": [
             {
-              "id": "deterministic",
+              "id": "deeper",
               "settings": {
-                "reasoningEffort": "high",
+                "reasoningEffort": "xhigh",
                 "textVerbosity": "low"
-              },
-              "body": {
-                "temperature": 0.0
               }
             },
             {
-              "id": "deterministic-deep",
+              "id": "deepest",
               "settings": {
                 "reasoningEffort": "max",
                 "textVerbosity": "low"
-              },
-              "body": {
-                "temperature": 0.0
               }
             }
           ]

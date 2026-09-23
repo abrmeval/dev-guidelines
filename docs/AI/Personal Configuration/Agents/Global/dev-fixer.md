@@ -2,7 +2,7 @@
 title: Dev Fixer
 sidebar_position: 8
 description: An agent with experience in full-stack software development. Invoke this agent when you want to work on fixes, remediations, and suggestions for different issues. It focuses on making corrections from the context provided.
-model: opencode-go/gpt-5.6-luna#deterministic-deep
+model: opencode-go/gpt-5.6-luna#deepest
 mode: subagent
 permission:
   - action: "*"

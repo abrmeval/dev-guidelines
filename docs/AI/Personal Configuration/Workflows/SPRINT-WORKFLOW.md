@@ -9,7 +9,7 @@ A PI agent workflow for software development from planning to testing.
 import { registerWorkflowExtension } from "../npm/node_modules/pi-extensible-workflows/dist/src/index.js";
 
 /**
- * sprintWorkflow
+ * sprintDevWorkflow
  * --------------
  * Runs a full sprint cycle with 8 role-based agents:
  *
@@ -124,13 +124,13 @@ const sprintExtension = {
         };
 
         const logError = (result, agent) => {
-          context.log(
+          return (
             `The ${agent} returned the following: ` +
-              result
-                .map((m) => {
-                  return "issue: " + m.issue + "; fix: " + m.fix;
-                })
-                .join(".\n"),
+            result
+              .map((m) => {
+                return "issue: " + m.issue + "; fix: " + m.fix;
+              })
+              .join(".\n")
           );
         };
 
@@ -201,8 +201,7 @@ const sprintExtension = {
         );
 
         if (!execution.isOk) {
-          logError(execution.result, "sprint-executor");
-          return;
+         return logError(execution.result, "sprint-executor");
         }
 
         const audit = await runStep(
@@ -215,8 +214,7 @@ const sprintExtension = {
         );
 
         if (!audit.isOk) {
-          logError(audit.result, "auditor");
-          return;
+          return logError(audit.result, "auditor");
         }
 
         // =================================================================
@@ -234,8 +232,7 @@ const sprintExtension = {
         );
 
         if (!unit.isOk) {
-          logError(unit.result, "unit-tester");
-          return;
+          return logError(unit.result, "unit-tester");
         }
 
         const testPlan = await runStep(
@@ -247,8 +244,7 @@ const sprintExtension = {
         );
 
         if (!testPlan.isOk) {
-          logError(testPlan.result, "test-planner");
-          return;
+          return logError(testPlan.result, "test-planner");
         }
 
         const e2e = await runStep(
@@ -262,8 +258,7 @@ const sprintExtension = {
         );
 
         if (!e2e.isOk) {
-          logError(e2e.result, "e2e-tester");
-          return;
+          return logError(e2e.result, "e2e-tester");
         }
 
         const uiux = await runStep(
@@ -276,8 +271,7 @@ const sprintExtension = {
         );
 
         if (!uiux.isOk) {
-          logError(uiux.result, "ui-ux-tester");
-          return;
+          return logError(uiux.result, "ui-ux-tester");
         }
 
         // =================================================================
