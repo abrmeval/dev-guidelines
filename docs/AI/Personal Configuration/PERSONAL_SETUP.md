@@ -248,7 +248,7 @@ In Windows, the global configuration is stored in `%USERPROFILE%\.config\opencod
         "type": "local",
         "command": [
           "uvx",
-          "mcp-proxy-for-aws==1.6.2",
+          "mcp-proxy-for-aws-cli@latest",
           "https://aws-mcp.us-east-1.api.aws/mcp",
           "--metadata",
           "AWS_REGION=us-west-2"
