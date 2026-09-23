@@ -20,9 +20,6 @@ permission:
   - action: grep
     resource: "*"
     effect: allow
-  - action: webfetch
-    resource: "*"
-    effect: allow
   - action: shell
     resource: "*"
     effect: ask
