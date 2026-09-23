@@ -56,7 +56,7 @@ permission:
    - action: shell
      resource: "uv build *"
      effect: allow
-   -  action: shell
+   - action: shell
      resource: "uv init *"
      effect: allow
    - action: shell
