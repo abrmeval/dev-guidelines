@@ -17,7 +17,7 @@ permissions:
   - action: grep
     resource: "*"
     effect: allow
-  - action: web_fetch
+  - action: webfetch
     resource: "*"
     effect: allow
   - action: skill
