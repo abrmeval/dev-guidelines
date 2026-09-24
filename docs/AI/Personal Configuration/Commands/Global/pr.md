@@ -32,6 +32,9 @@ Create a GitHub pull request using the `gh pr create` command with the following
 ### Example Command Structure
 ```bash
 gh pr create --title "PR: Title here" --body "Description here"
+
+# Or in case the previous command is not working or available
+gh.exe pr create --title "PR: Title here" --body "Description here"
 ```
 
 ### Structure of the body:
