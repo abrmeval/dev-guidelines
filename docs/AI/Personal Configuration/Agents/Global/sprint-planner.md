@@ -4,7 +4,7 @@ sidebar_position: 1
 description: An agent that creates, plans, or organizes a well-structured sprint file.
 model: opencode-go/glm-5.2#exact-deep
 mode: all
-permission:
+permissions:
   - action: "*"
     resource: "*"
     effect: deny

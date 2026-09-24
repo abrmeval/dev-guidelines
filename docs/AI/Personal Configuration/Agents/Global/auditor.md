@@ -4,7 +4,7 @@ sidebar_position: 4
 description: Invoke this agent to review/audit recently changed code against project guidelines and best practices. It reads, searches, and reports but never modifies files.
 model: opencode-go/glm-5.2#exact-deep
 mode: subagent
-permission:
+permissions:
   - action: "*"
     resource: "*"
     effect: deny
@@ -17,7 +17,7 @@ permission:
   - action: grep
     resource: "*"
     effect: allow
-  - action: webfetch
+  - action: web_fetch
     resource: "*"
     effect: allow
   - action: skill
@@ -119,7 +119,7 @@ Use the `docu-expert` skill to verify:
 
 ## Behaviour Rules
 
-- **Read-only**: Never suggest edits inline; only report findings. All fixes must be performed by the developer or sprint-executor.
+- **Read-only**: Never suggest edits inline; only report findings.
 - **Be specific**: Always cite the file path, line number (if findable via Grep), and the exact rule violated.
 - **Be objective**: Do not praise for passing checks — only flag deviations clearly.
 - **Prioritize blockers**: Failed checks that violate architectural boundaries (wrong layer dependencies, missing `import type`, `any` types) are highest priority.

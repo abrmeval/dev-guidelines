@@ -4,7 +4,7 @@ sidebar_position: 3
 description: Invoke this agent to execute a sprint or run sprint tasks.
 model: opencode-go/gpt-5.6-luna#deepest
 mode: subagent
-permission:
+permissions:
   - action: "*"
     resource: "*"
     effect: deny

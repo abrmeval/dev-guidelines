@@ -4,7 +4,7 @@ sidebar_position: 5
 description: An agent that writes and runs unit tests on a project and reports the results. Invoke this agent when you want to write and run unit tests on a project and get a summary of the results.
 model: opencode-go/muse-spark-1.3-contributor#xhigh
 mode: subagent
-permission:
+permissions:
    - action: "*"
      resource: "*"
      effect: deny

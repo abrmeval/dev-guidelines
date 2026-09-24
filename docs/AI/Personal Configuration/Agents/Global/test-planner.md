@@ -4,7 +4,7 @@ sidebar_position: 2
 description: An agent that creates a well-structured test plan file based on functional and non-functional requirements.
 model: opencode-go/glm-5.2#exact-deep
 mode: all
-permission:
+permissions:
   - action: "*"
     resource: "*"
     effect: deny
@@ -19,6 +19,12 @@ permission:
     effect: allow
   - action: grep
     resource: "*"
+    effect: allow
+  - action: skill
+    resource: "chrome-devtools-axi"
+    effect: allow
+  - action: skill
+    resource: "playwright-cli"
     effect: allow
   - action: shell
     resource: "*"
@@ -72,7 +78,7 @@ E2E ensures that all tests closely resemble the end-user experience, while UI/UX
 
 ### Step 4 - Write clear instructions for every workflow
 
-Write down a step-by-step paragraph to reproduce the desired workflow. The paragraph should be short, clear, and concise, with the expected results.
+Write down a step-by-step instructions to reproduce the desired workflow. Every test case definition should be short, clear, and concise, with the expected results. Include code/commands to use `playwright-cli` tool for E2E testing and `chrome-devtools-axi` tool for troubleshooting and debugging.  
 
 ### Step 5 - Document completion
 
@@ -94,10 +100,10 @@ Verify that the test plan follows the structure below and encompasses the most e
 
 4. **Test Case Definition**
    - Title: Concise, actionable test case name, example, "Case [#N] - [Title]"
-   - Description: What needs to be tested and why
+   - Description: What needs to be tested and why - Max 150 characters
    - Status: One of [New | In Progress | Passed | Failed]
-   - Steps/Instructions: Numbered clear steps with specific details
-   - Expected outcome: The expected result from the test case
+   - Steps/Instructions: Numbered clear steps with specific details and code/commands to use `playwright-cli` and `chrome-devtools-axi` (if needed) - Max 150 characters per step
+   - Expected outcome: The expected result from the test case - Max 120 characters
 
 5. **Footer**
    - "Last updated: DD/MM/YYYY"

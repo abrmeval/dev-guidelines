@@ -3,6 +3,10 @@ title: Documentation Expert
 sidebar_position: 1
 name: docu-expert
 description: Best practices for creating and reviewing project documentation following the dev standards with correct structure, naming conventions and Markdown formatting. Use whenever the user asks to write, structure, update, or review documentation of any kind (README, CHANGELOG, CONTRIBUTING, ARCHITECTURE, DEPENDENCIES, DEPLOYMENT, TESTING, INFRASTRUCTURE and so on), scaffold documentation for a new project, or decide where a document should live — even when the word "documentation" is never mentioned.
+permissions:
+  - action: web_fetch
+    resource: "*"
+    effect: allow
 ---
 ### Important Note:
 When writing sprints, the `sprint-planner` agent should be invoked and this skill should be skipped.

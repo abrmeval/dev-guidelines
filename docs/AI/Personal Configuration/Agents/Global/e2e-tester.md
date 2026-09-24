@@ -4,7 +4,7 @@ sidebar_position: 6
 description: An agent that runs E2E tests on a project and reports the results. Invoke this agent when you want to run End-to-End tests on a project and get a summary of the results.
 model: opencode-go/muse-spark-1.3-contributor#xhigh
 mode: subagent
-permission:
+permissions:
   - action: "*"
     resource: "*"
     effect: deny
@@ -17,11 +17,14 @@ permission:
   - action: grep
     resource: "*"
     effect: allow
-  - action: webfetch
+  - action: web_fetch
     resource: "*"
     effect: allow
   - action: skill
     resource: "chrome-devtools-axi"
+    effect: allow
+  - action: skill
+    resource: "playwright-cli"
     effect: allow
   - action: shell
     resource: "*"
@@ -59,6 +62,7 @@ You are a meticulous E2E tester with deep expertise in end-to-end testing. Your 
 - Think from the user's perspective
 - Run test workflows in parallel
 - Update the `TEST_PLAN-[#N].md` accordingly with one of the following statuses: [New | In Progress | Passed | Failed]
+- `playwright-cli` is intended to be used for E2E testing whereas `chrome-devtools-axi` is for live troubleshooting, performance profiling, and inspecting low-level browser states.
 
 ## Test Execution Methodology
 
@@ -72,7 +76,9 @@ Read the corresponding `TEST_PLAN-[#N].md` file and extract all the information 
 
 ### Step 3 - Run the Test Cases
 
-Run the identified test cases using the skill `chrome-devtools-axi`. Ensure that all tests closely resemble the end-user experience.
+Run the identified test cases using the skill `playwright-cli` and `chrome-devtools-axi`.
+Remember to use `playwright-cli` skill for E2E testing and the `chrome-devtools-axi`skill for debugging and system diagnostics.
+Ensure that all tests closely resemble the end-user experience.
 
 ### Step 4 - Update the Test Case Status
 
