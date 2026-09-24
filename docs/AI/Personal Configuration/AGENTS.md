@@ -25,3 +25,8 @@ Common guidelines for AI agents across all repositories. These guidelines are in
 - Documents should never have real sensitive information like passwords, API keys, or secrets. Use placeholders instead.
 - Documents must be in a "docs" folder in the root directory of the project written in Markdown syntax with UPPERCASE file names.
 - Documents must have a "Last updated" date at the bottom (e.g., `*Last Updated: 17 Feb 2026*`).
+
+## Git
+- Remotes use HTTPS; auth goes through the gh credential helper.
+- Never run commands that wait for interactive input.
+- If a push fails with "could not read Username" or times out, stop and tell me instead of retrying or changing config.
